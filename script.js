@@ -5,6 +5,11 @@ const weatherApp = {};
 weatherApp.apiKey = `1903a471aab786101e6bcd6d7b0b6a07`;
 weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
 
+// Variables to capture page elements
+weatherApp.form = document.querySelector(`form`)
+weatherApp.resultsDiv = document.querySelector(`.results`);
+weatherApp.p = document.createElement(`p`);
+weatherApp.searchInput = document.querySelector(`input`)
 
 // Request information from the API
 weatherApp.getData = (query) => {
@@ -23,18 +28,11 @@ weatherApp.getData = (query) => {
         })
 }
 
-// Variables to capture page elements
-const form = document.querySelector(`form`)
-const resultsDiv = document.querySelector(`.results`);
-const p = document.createElement(`p`);
-const searchInput = document.querySelector(`input`)
-
-
 // Function to call the event listener
-function startEventListener() {
-    form.addEventListener(`submit`, function (event) {
+weatherApp.startEventListener = () => {
+    weatherApp.form.addEventListener(`submit`, function (event) {
         // Store user's search input in a variable
-        const userSearch = searchInput.value
+        const userSearch = weatherApp.searchInput.value
         // prevent page reload on form submissions
         event.preventDefault();
         weatherApp.getData(userSearch);
@@ -45,15 +43,15 @@ function startEventListener() {
 // Function to display temperature on the page
 weatherApp.displayTemperature = (objectDataFromApi) => {
     // Math.round to present only a whole number
-    p.textContent = Math.round(objectDataFromApi.main.temp - 273.15);
+    weatherApp.p.textContent = Math.round(objectDataFromApi.main.temp - 273.15);
     
     // Publish results to the page
-    resultsDiv.appendChild(p);
+    weatherApp.resultsDiv.appendChild(weatherApp.p);
 }
 
 weatherApp.init = () => {
     // Listen for Form Submission
-    startEventListener()
+    weatherApp.startEventListener()
     
 }
 
