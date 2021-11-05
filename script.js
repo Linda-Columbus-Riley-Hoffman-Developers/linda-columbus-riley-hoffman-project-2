@@ -30,6 +30,18 @@ const p = document.createElement(`p`);
 const searchInput = document.querySelector(`input`)
 
 
+// Function to call the event listener
+function startEventListener() {
+    form.addEventListener(`submit`, function (event) {
+        // Store user's search input in a variable
+        const userSearch = searchInput.value
+        // prevent page reload on form submissions
+        event.preventDefault();
+        weatherApp.getData(userSearch);
+    })
+}
+
+
 // Function to display temperature on the page
 weatherApp.displayTemperature = (objectDataFromApi) => {
     // Math.round to present only a whole number
@@ -41,15 +53,7 @@ weatherApp.displayTemperature = (objectDataFromApi) => {
 
 weatherApp.init = () => {
     // Listen for Form Submission
-
-    form.addEventListener(`submit`, function (event) {
-        // Store user's search input in a variable
-        const userSearch = searchInput.value
-        // prevent page reload on form submissions
-        event.preventDefault();
-        weatherApp.getData(userSearch);
-    })
-
+    startEventListener()
     
 }
 
