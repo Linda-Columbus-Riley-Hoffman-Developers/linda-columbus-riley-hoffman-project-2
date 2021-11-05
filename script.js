@@ -5,14 +5,12 @@ const weatherApp = {};
 weatherApp.apiKey = `1903a471aab786101e6bcd6d7b0b6a07`;
 weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
 
-// Storing user input in a variable
-weatherApp.userCityInput = `toronto`; //🚨 toronto as placeholder until template literal can be used referencing captured user search 
 
 // Request information from the API
-weatherApp.getData = () => {
+weatherApp.getData = (query) => {
     const url = new URL(weatherApp.apiUrl);
     url.search = new URLSearchParams({
-        q: `${weatherApp.userCityInput}`,
+        q: `${query}`,
         appid: weatherApp.apiKey,
     })
     fetch(url)
@@ -25,23 +23,15 @@ weatherApp.getData = () => {
         })
 }
 
+// Variables to capture page elements
+const form = document.querySelector(`form`)
+const resultsDiv = document.querySelector(`.results`);
+const p = document.createElement(`p`);
+const searchInput = document.querySelector(`input`)
+
+
 // Function to display temperature on the page
 weatherApp.displayTemperature = (objectDataFromApi) => {
-
-    // Variables to capture page elements
-    const form = document.querySelector(`form`)
-    const resultsDiv = document.querySelector(`.results`);
-    const p = document.createElement(`p`);
-    const searchInput = document.getElementById(`search`)
-
-    // Listen for Form Submission
-    form.addEventListener(`submit`, function(event){
-        // Store user's search input in a variable
-        const userSearch = searchInput.value
-        // prevent page reload on form submissions
-        event.preventDefault();
-        console.log(userSearch)
-    })
     // Math.round to present only a whole number
     p.textContent = Math.round(objectDataFromApi.main.temp - 273.15);
     
@@ -50,7 +40,17 @@ weatherApp.displayTemperature = (objectDataFromApi) => {
 }
 
 weatherApp.init = () => {
-    weatherApp.getData();
+    // Listen for Form Submission
+
+    form.addEventListener(`submit`, function (event) {
+        // Store user's search input in a variable
+        const userSearch = searchInput.value
+        // prevent page reload on form submissions
+        event.preventDefault();
+        weatherApp.getData(userSearch);
+    })
+
+    
 }
 
 // Kickoff the app 🏈
