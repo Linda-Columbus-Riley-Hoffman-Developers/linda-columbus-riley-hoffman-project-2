@@ -20,7 +20,12 @@ weatherApp.getData = (query) => {
     })
     fetch(url)
         .then((response) => {
-            return response.json();
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert(`Oops that doesn't look like a city name. Try again!`);
+                weatherApp.searchInput.value = ``;
+            }
         })
         .then((jsonResponse) => {
             console.log(jsonResponse);
