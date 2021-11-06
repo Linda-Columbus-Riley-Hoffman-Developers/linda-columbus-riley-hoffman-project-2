@@ -8,6 +8,7 @@ weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
 // Variables to capture page elements
 weatherApp.form = document.querySelector(`form`)
 weatherApp.resultsDiv = document.querySelector(`.results`);
+weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.p = document.createElement(`p`);
 weatherApp.searchInput = document.querySelector(`input`)
 
@@ -18,19 +19,19 @@ weatherApp.getData = (query) => {
         q: `${query}`,
         appid: weatherApp.apiKey,
     })
-    fetch(url)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert(`Oops that doesn't look like a city name. Try again!`);
-                weatherApp.searchInput.value = ``;
-            }
-        })
-        .then((jsonResponse) => {
-            console.log(jsonResponse);
-            weatherApp.displayTemperature(jsonResponse);
-        })
+        fetch(url)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    alert(`Oops that doesn't look like a city name. Try again!`);
+                    weatherApp.searchInput.value = ``;
+                }
+            })
+            .then((jsonResponse) => {
+                console.log(jsonResponse);
+                weatherApp.displayWeatherData(jsonResponse);
+            })
 }
 
 // Function to call the event listener
@@ -45,10 +46,19 @@ weatherApp.startEventListener = () => {
 }
 
 
-// Function to display temperature on the page
-weatherApp.displayTemperature = (objectDataFromApi) => {
+// Function to display weather data on the page
+weatherApp.displayWeatherData = (objectDataFromApi) => {
     // Math.round to present only a whole number
     weatherApp.p.textContent = Math.round(objectDataFromApi.main.temp - 273.15);
+    // Targeting the weather condition for icon
+    const weatherCondition = objectDataFromApi.weather[0].main;
+    // Connecting corresponding weather icon to weather condition
+    if (weatherCondition === `Clouds`) {
+        weatherApp.displayIcon.innerHTML = `<i class="fas fa-cloud"></i>`
+    } else if (weatherCondition === `Clear`) {
+        weatherApp.displayIcon.innerHTML = `<i class="fas fa-sun"></i>`
+    }
+    
     
     // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
