@@ -18,16 +18,25 @@
         <h1>Weather App</h1>
     </header>
     <main id="main">
-        <section class="instructions">
+        <!-- <section class="instructions">
             <div class="wrapper flexBox">
                 <p>Find out the temperature anywhere in the world!</p>
             </div>
-        </section>
+        </section> -->
         <section class="app">
             <div class="wrapper flexBox">
                 <form action="_blank">
-                    <label for="search">Enter a "city" or "city, country":</label>
-                    <input type="search" name="search" placeholder="search" id="search">
+                    <fieldset>
+                        <legend>Find out the temperature anywhere in the world!</legend>
+                        <div class="flexBox">
+                            <input type="radio" id="now" name="when">
+                            <label for="now">Right Now</label>
+                            <input type="radio" id="sevenDay" name="when">
+                            <label for="sevenDay">Seven Day Forecast</label>
+                        </div>
+                        <label for="search">Enter a "city" or "city, country":</label>
+                        <input type="search" name="search" placeholder="search" id="search">
+                    </fieldset>
                     <button>Search</button>
                 </form>
                 <div class="results">
@@ -40,7 +49,7 @@
     <footer>        
         <p>Juno College of Technology © 2021</p>
         <div class="flexBox">
-            <p>Linda Columbus | Riley Hoffman| Developers</p>
+            <p>Linda Columbus | Riley Hoffman | Developers</p>
             <a href="https://github.com/Linda-Columbus-Riley-Hoffman-Developers"><i class="fab fa-github"></i></a>
         </div>
     </footer>

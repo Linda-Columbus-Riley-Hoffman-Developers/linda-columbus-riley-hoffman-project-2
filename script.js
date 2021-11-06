@@ -11,14 +11,24 @@ weatherApp.resultsDiv = document.querySelector(`.results`);
 weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.p = document.createElement(`p`);
 weatherApp.searchInput = document.querySelector(`input`)
+weatherApp.sevenDay = document.getElementById(`sevenDay`)
+weatherApp.now = document.getElementById(`now`)
 
 // Request information from the API
 weatherApp.getData = (query) => {
     const url = new URL(weatherApp.apiUrl);
+    if (weatherApp.sevenDay.checked) {
     url.search = new URLSearchParams({
         q: `${query}`,
-        appid: weatherApp.apiKey,
+        cnt: 7,
+        appid: weatherApp.apiKey
+        })
+    } else if (weatherApp.now.checked) {
+            url.search = new URLSearchParams({
+                q: `${query}`,
+                appid: weatherApp.apiKey
     })
+    }
         fetch(url)
             .then((response) => {
                 if (response.ok) {
