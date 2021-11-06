@@ -6,7 +6,12 @@
 // placeholder styling for now, just for readability
 p,
 label, 
+input,
 input::placeholder,
 button {
     font-size: 1.6rem;
+}
+
+footer i {
+    font-size: 2rem;
 }

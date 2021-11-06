@@ -1,3 +1,7 @@
+* {
+    border: 2px solid lime;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -5,6 +9,16 @@ html {
 body, h1, h2, h3, h4, p, nav, ul, li, button {
     margin: 0;
     padding: 0;
+}
+
+header {
+    background-image: url("https://images.unsplash.com/photo-1632267071031-1cda764f851f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-size: cover;
+    height: 90vh;
+}
+
+header, section, footer {
+    padding: 20px;
 }
 
 img {
@@ -16,8 +30,60 @@ li {
     list-style: none;
 }
 
+form, .results, footer {
+    display: flex;
+}
+
+form {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    label, button {
+        min-width: 85px;
+        width: 25%;
+    }
+    input {
+        min-width: 120px;
+        width: 50%;
+    }   
+    input, button {
+        padding: 10px;
+    }
+
+    button {
+        min-width: 75px;
+    }
+}
+
+.results {
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+footer {
+    justify-content: space-between;
+    .flexBox {
+        align-items: center;
+        justify-content: space-between;
+        i {
+            margin-left: 20px;
+        }
+    }
+}
+
+.skip-link {position: absolute; left: -1000px; top: 5px;z-index: 999; background: white; color: black;}
+
+.skip-link:focus {left: 0;}
+
 .wrapper {
     width: 70%;
     max-width: 1100px;
     margin: 0 auto;
 }
+
+.flexBox {
+    display: flex;
+}
+

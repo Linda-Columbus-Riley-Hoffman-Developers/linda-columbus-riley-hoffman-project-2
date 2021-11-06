@@ -14,7 +14,7 @@ article, aside, footer, header, nav, section {
 
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 
 figcaption, figure, main {
@@ -33,7 +33,7 @@ hr {
 }
 
 pre {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -83,11 +83,11 @@ sub, sup {
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 audio, video {
@@ -136,7 +136,7 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
 }
 
 fieldset {
-  padding: .35em .75em .625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
@@ -206,7 +206,7 @@ template {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: '';
+  content: "";
   clear: both;
   height: 0;
 }
@@ -235,32 +235,36 @@ html {
   overflow: hidden;
 }
 
-p,
-label,
-input::-webkit-input-placeholder,
-button {
+input::-webkit-input-placeholder {
+  font-size: 1.6rem;
+}
+
+input::-moz-placeholder {
+  font-size: 1.6rem;
+}
+
+input:-ms-input-placeholder {
+  font-size: 1.6rem;
+}
+
+input::-ms-input-placeholder {
   font-size: 1.6rem;
 }
 
 p,
 label,
-input:-ms-input-placeholder,
-button {
-  font-size: 1.6rem;
-}
-
-p,
-label,
-input::-ms-input-placeholder,
-button {
-  font-size: 1.6rem;
-}
-
-p,
-label,
+input,
 input::placeholder,
 button {
   font-size: 1.6rem;
+}
+
+footer i {
+  font-size: 2rem;
+}
+
+* {
+  border: 2px solid lime;
 }
 
 html {
@@ -272,6 +276,16 @@ body, h1, h2, h3, h4, p, nav, ul, li, button {
   padding: 0;
 }
 
+header {
+  background-image: url("https://images.unsplash.com/photo-1632267071031-1cda764f851f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-size: cover;
+  height: 90vh;
+}
+
+header, section, footer {
+  padding: 20px;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -281,8 +295,87 @@ li {
   list-style: none;
 }
 
+form, .results, footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+form {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+}
+form label, form button {
+  min-width: 85px;
+  width: 25%;
+}
+form input {
+  min-width: 120px;
+  width: 50%;
+}
+form input, form button {
+  padding: 10px;
+}
+form button {
+  min-width: 75px;
+}
+
+.results {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+}
+
+footer {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+footer .flexBox {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+footer .flexBox i {
+  margin-left: 20px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  top: 5px;
+  z-index: 999;
+  background: white;
+  color: black;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
 .wrapper {
   width: 70%;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.flexBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

@@ -5,28 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Individual Google Font Links Go Here -->
+    
+    <script src="https://kit.fontawesome.com/3ac59313ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
-    
+        <a href="#main" class="skip-link">Skip To Content</a>
+        <h1>Weather App</h1>
     </header>
-    <section class="instructions">
+    <main id="main">
+        <section class="instructions">
+            <div class="wrapper flexBox">
+                <p>Find out the temperature anywhere in the world!</p>
+            </div>
+        </section>
+        <section class="app">
+            <div class="wrapper flexBox">
+                <form action="_blank">
+                    <label for="search">Enter a city:</label>
+                    <input type="search" name="search" placeholder="search" id="search">
+                    <button>Search</button>
+                </form>
+                <div class="results">
+                    <!-- API data populates here -->
 
-    </section>
-    <section class="app">
-        <form action="_blank">
-            <label for="search">Enter a city:</label>
-            <input type="search" name="search" placeholder="search" id="search">
-            <button>Search</button>
-        </form>
-        <div class="results">
-            <!-- API data populates here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>        
+        <p>Juno College of Technology © 2021</p>
+        <div class="flexBox">
+            <p>Linda Columbus | Riley Hoffman| Developers</p>
+            <a href="https://github.com/Linda-Columbus-Riley-Hoffman-Developers"><i class="fab fa-github"></i></a>
         </div>
-    </section>
-    <script src="./script.js"></script>
-    <footer>
-
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
