@@ -3,51 +3,90 @@ const weatherApp = {};
 
 // Relevant API information
 weatherApp.apiKey = `1903a471aab786101e6bcd6d7b0b6a07`;
+weatherApp.apiKeySevenDay = `8CQY9SE2V7QTVGV5WP895DAZ5`;
 weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
+weatherApp.apiUrlSevenDay = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast`;
 
 // Variables to capture page elements
 weatherApp.form = document.querySelector(`form`)
 weatherApp.resultsDiv = document.querySelector(`.results`);
 weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.p = document.createElement(`p`);
-weatherApp.searchInput = document.querySelector(`input`)
+weatherApp.searchInput = document.getElementById(`search`);
+weatherApp.userSearch = weatherApp.searchInput.value; // Store user's search input in a variable
 weatherApp.sevenDay = document.getElementById(`sevenDay`)
 weatherApp.now = document.getElementById(`now`)
 
 
 // Request information from the API
+// weatherApp.getData = (query) => {
+//     const url = new URL(weatherApp.apiUrl);
+//     url.search = new URLSearchParams({
+//         q: `${query}`,
+//         appid: weatherApp.apiKey,
+//     })
+
 weatherApp.getData = (query) => {
     const url = new URL(weatherApp.apiUrl);
-    url.search = new URLSearchParams({
-        q: `${query}`,
-        appid: weatherApp.apiKey,
-    })
-        fetch(url)
+    const urlSevenDay = new URL(weatherApp.apiUrlSevenDay);
+
+    if (weatherApp.sevenDay.checked) {
+        urlSevenDay.search = new URLSearchParams({
+            locations: `${query}`,
+            aggregateHours: 24,
+            forecastDays: 5,
+            unitGroup: `metric`,
+            shortColumnNames: false,
+            contentType: `json`,
+            key: weatherApp.apiKeySevenDay
+        })
+        fetch(urlSevenDay)
             .then((response) => {
                 if (response.ok) {
+                    console.log(response)
                     return response.json();
                 } else {
                     alert(`Oops that doesn't look like a city name. Try again!`);
-                    weatherApp.searchInput.value = ``;
+                    weatherApp.userSearch = ``;
                 }
             })
             .then((jsonResponse) => {
                 console.log(jsonResponse);
-                weatherApp.displayWeatherData(jsonResponse);
+                weatherApp.displayForecastData(jsonResponse);
             })
+
+
+    }
 }
+//     } else if (weatherApp.now.checked) {
+//         url.search = new URLSearchParams({
+//             q: `${query}`,
+//             appid: weatherApp.apiKey
+//         })
+//     }
+//         fetch(url)
+//             .then((response) => {
+//                 if (response.ok) {
+//                     return response.json();
+//                 } else {
+//                     alert(`Oops that doesn't look like a city name. Try again!`);
+//                     weatherApp.userSearch = ``;
+//                 }
+//             })
+//             .then((jsonResponse) => {
+//                 console.log(jsonResponse);
+//                 weatherApp.displayWeatherData(jsonResponse);
+//             })
+// }
 
 // Function to call the event listener
 weatherApp.startEventListener = () => {
     weatherApp.form.addEventListener(`submit`, function (event) {
-        // Store user's search input in a variable
-        const userSearch = weatherApp.searchInput.value
         // prevent page reload on form submissions
         event.preventDefault();
-        weatherApp.getData(userSearch);
+        weatherApp.getData(weatherApp.userSearch);
     })
 }
-
 
 // Function to display weather data on the page
 weatherApp.displayWeatherData = (objectDataFromApi) => {
@@ -61,8 +100,8 @@ weatherApp.displayWeatherData = (objectDataFromApi) => {
     } else if (weatherCondition === `Clear`) {
         weatherApp.displayIcon.innerHTML = `<i class="fas fa-sun"></i>`
     }
-    
-    
+
+
     // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
 }
@@ -70,7 +109,7 @@ weatherApp.displayWeatherData = (objectDataFromApi) => {
 weatherApp.init = () => {
     // Listen for Form Submission
     weatherApp.startEventListener()
-    
+
 }
 
 // Kickoff the app 🏈
