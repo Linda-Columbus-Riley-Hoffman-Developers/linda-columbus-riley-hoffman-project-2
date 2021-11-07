@@ -14,7 +14,7 @@ weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.p = document.createElement(`p`);
 weatherApp.searchInput = document.getElementById(`search`);
 weatherApp.userSearch = weatherApp.searchInput.value; // Store user's search input in a variable
-weatherApp.sevenDay = document.getElementById(`sevenDay`)
+weatherApp.sevenDay = document.getElementById(`fiveDay`)
 weatherApp.now = document.getElementById(`now`)
 
 
@@ -44,30 +44,30 @@ weatherApp.getDataOne = (queryOne) => {
 weatherApp.getDataFive = (queryFive) => {
     const urlSevenDay = new URL(weatherApp.apiUrlSevenDay);
 
-        urlSevenDay.search = new URLSearchParams({
-            locations: `${queryFive}`,
-            aggregateHours: 24,
-            forecastDays: 5,
-            unitGroup: `metric`,
-            shortColumnNames: false,
-            contentType: `json`,
-            key: weatherApp.apiKeySevenDay
+    urlSevenDay.search = new URLSearchParams({
+        locations: `${queryFive}`,
+        aggregateHours: 24,
+        forecastDays: 5,
+        unitGroup: `metric`,
+        shortColumnNames: false,
+        contentType: `json`,
+        key: weatherApp.apiKeySevenDay
+    })
+    fetch(urlSevenDay)
+        .then((response) => {
+            if (response.ok) {
+                console.log(response)
+                return response.json();
+            } else {
+                alert(`Oops that doesn't look like a city name. Try again!`);
+                weatherApp.userSearch = ``;
+            }
         })
-        fetch(urlSevenDay)
-            .then((response) => {
-                if (response.ok) {
-                    console.log(response)
-                    return response.json();
-                } else {
-                    alert(`Oops that doesn't look like a city name. Try again!`);
-                    weatherApp.userSearch = ``;
-                }
-            })
-            .then((jsonResponse) => {
-                console.log(jsonResponse);
-                weatherApp.displayForecastData(jsonResponse);
-            })
-    }
+        .then((jsonResponse) => {
+            console.log(jsonResponse);
+            weatherApp.displayForecastData(jsonResponse);
+        })
+}
 
 
 
@@ -76,6 +76,7 @@ weatherApp.startEventListener = () => {
     weatherApp.form.addEventListener(`submit`, function (event) {
         // prevent page reload on form submissions
         event.preventDefault();
+        // If Seven Day Forcast 
         if (weatherApp.sevenDay.checked) {
             weatherApp.getDataFive(weatherApp.userSearch);
         } else {
@@ -87,7 +88,7 @@ weatherApp.startEventListener = () => {
 // Function to display weather data on the page
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Math.round to present only a whole number
-    weatherApp.p.textContent = `${Math.round(objectDataFromApi.main.temp - 273.15)}° C`;
+    weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
     // Targeting the weather condition for icon
     const weatherCondition = todaysDataFromApi.weather[0].main;
     // Connecting corresponding weather icon to weather condition
@@ -104,7 +105,7 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
 // Function to display weather data on the page
 weatherApp.displayForecastData = (forecastDataFromApi) => {
     // Math.round to present only a whole number
-    weatherApp.p.textContent = ``;
+    weatherApp.p.textContent = `It Worked!`;
     // Capture data from API to publish 
 
     // // Publish results to the page
@@ -122,13 +123,11 @@ weatherApp.init();
 
 
 /* PSEUDO CODE
-
 // App functionality thinking:
 // Create a form with a search input to receive a city name
 // Store the user's input as a variable
 // Use the user's input to fetch from the API the corresponding temperature of that city
 // Display the temperature on the page
-
 // JS Thinking:
 // Create an app object (weatherApp)
 // Initialize preset data in the dedicated properties
@@ -136,12 +135,10 @@ weatherApp.init();
 // - apiKey
 // - userInputCity
 // Create a method (getUserInputCity) to update the variable (userInputCity) based on user input
-
 // Create a method (getCities) to make an API call, which takes the user input as a parameter (userInputCity)
 // Identify/create a variable for an empty div where the results will be stored
 // When the API call is successful, display the result by appending the data to the results div
 // If the user text input doesn't exactly match a city property (eg. typo), there will be a prompt to ask them to try again
-
 // Create an init method to kick off the setup of the application
 */
 
