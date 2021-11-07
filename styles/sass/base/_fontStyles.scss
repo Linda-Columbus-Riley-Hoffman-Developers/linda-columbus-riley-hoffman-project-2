@@ -1,18 +1,47 @@
-// Header
-
-// Body
-
-// Form font styles
-// placeholder styling for now, just for readability
-p,
-label, 
-input,
-input::placeholder,
-button,
-legend {
-    font-size: 1.6rem;
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    @include fontStyle (14rem, 700);
+    color: $headerTextColor;
+    text-transform: uppercase;
+    line-height: 80%;
+    text-shadow: 3px 2px 2px #ffecec;
 }
 
-footer i {
-    font-size: 2rem;
+h2 {
+    @include fontStyle (5rem, 500);
+}
+
+h2,
+button {
+    font-family: 'Crimson Text', serif;
+}
+
+p,
+legend,
+label,
+input {
+    font-family: 'Nunito Sans', sans-serif;
+    @include fontStyle (1.8rem, 400)
+}
+
+button {
+    @include fontStyle (2rem, 500);
+    text-transform: uppercase;
+}
+
+footer {
+    p,
+    i,
+    a {
+        color: $footerTextColor;
+    }
+    p {
+        font-size: 1.6rem;
+    }
+    a {
+        text-decoration: none;
+    }
+    i {
+        font-size: 2rem;
+    }
 }
