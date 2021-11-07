@@ -28,7 +28,7 @@ weatherApp.getDataOne = (queryOne) => {
     fetch(url)
         .then((response) => {
             if (response.ok) {
-                console.log(response)
+                console.log(response, 'first .then')
                 return response.json();
             } else {
                 alert(`Oops that doesn't look like a city name. Try again!`);
@@ -36,7 +36,7 @@ weatherApp.getDataOne = (queryOne) => {
             }
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse);
+            console.log(jsonResponse, 'second .then');
             weatherApp.displayTodaysData(jsonResponse);
         })
 }
@@ -85,19 +85,29 @@ weatherApp.startEventListener = () => {
 }
 
 // Function to display weather data on the page
-weatherApp.displayTodaysData = (objectDataFromApi) => {
+weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Math.round to present only a whole number
-    weatherApp.p.textContent = Math.round(objectDataFromApi.main.temp - 273.15);
+    weatherApp.p.textContent = Math.round(todaysDataFromApi.main.temp - 273.15);
     // Targeting the weather condition for icon
-    const weatherCondition = objectDataFromApi.weather[0].main;
+    const weatherCondition = todaysDataFromApi.weather[0].main;
     // Connecting corresponding weather icon to weather condition
     if (weatherCondition === `Clouds`) {
         weatherApp.displayIcon.innerHTML = `<i class="fas fa-cloud"></i>`
     } else if (weatherCondition === `Clear`) {
         weatherApp.displayIcon.innerHTML = `<i class="fas fa-sun"></i>`
     }
-    
+
     // Publish results to the page
+    weatherApp.resultsDiv.appendChild(weatherApp.p);
+}
+
+// Function to display weather data on the page
+weatherApp.displayForecastData = (forecastDataFromApi) => {
+    // Math.round to present only a whole number
+    weatherApp.p.textContent = ``;
+    // Capture data from API to publish 
+
+    // // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
 }
 
