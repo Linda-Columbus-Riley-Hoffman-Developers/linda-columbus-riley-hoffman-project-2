@@ -16,16 +16,45 @@ button {
     font-family: 'Crimson Text', serif;
 }
 
+// Form font styles
+// placeholder styling for now, just for readability
+p {
+    font-size: 1.6rem;
+}
+
+label, 
+input,
+input::placeholder,
+button,
+legend {
+    font-size: 2.8rem;
+}
+
 p,
 legend,
 label,
 input {
     font-family: 'Nunito Sans', sans-serif;
-    @include fontStyle (1.8rem, 400)
+}
+
+.results p {
+    font-size: 4.4rem;
+}
+
+.results i {
+    font-size: 5.5rem;
+    margin-right: 20px;
+}
+
+.fa-cloud {
+    color: rgb(105, 128, 204);
+}
+
+.fa-sun {
+    color: rgb(230, 187, 0);
 }
 
 button {
-    @include fontStyle (2rem, 500);
     text-transform: uppercase;
 }
 

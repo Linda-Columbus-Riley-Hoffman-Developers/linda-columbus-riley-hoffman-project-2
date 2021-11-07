@@ -255,18 +255,67 @@ button {
   font-family: 'Crimson Text', serif;
 }
 
+p {
+  font-size: 1.6rem;
+}
+
+label,
+input,
+input::-webkit-input-placeholder,
+button,
+legend {
+  font-size: 2.8rem;
+}
+
+label,
+input,
+input:-ms-input-placeholder,
+button,
+legend {
+  font-size: 2.8rem;
+}
+
+label,
+input,
+input::-ms-input-placeholder,
+button,
+legend {
+  font-size: 2.8rem;
+}
+
+label,
+input,
+input::placeholder,
+button,
+legend {
+  font-size: 2.8rem;
+}
+
 p,
 legend,
 label,
 input {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 400;
+}
+
+.results p {
+  font-size: 4.4rem;
+}
+
+.results i {
+  font-size: 5.5rem;
+  margin-right: 20px;
+}
+
+.fa-cloud {
+  color: #6980cc;
+}
+
+.fa-sun {
+  color: #e6bb00;
 }
 
 button {
-  font-size: 2rem;
-  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -315,7 +364,7 @@ header {
   text-align: center;
 }
 
-header, section, footer {
+header, section, form, footer {
   padding: 20px;
 }
 
@@ -334,7 +383,15 @@ form, .results, footer {
   display: flex;
 }
 
-form {
+.app {
+  padding: 100px 0;
+}
+
+.app .appWrapper {
+  position: relative;
+}
+
+.app .appWrapper form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -344,39 +401,53 @@ form {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 80%;
+  padding: 20px;
 }
 
-form fieldset {
+.app .appWrapper form fieldset {
   border: none;
-}
-
-form label, form button {
-  min-width: 85px;
-  width: 25%;
-}
-
-form input {
-  min-width: 120px;
-  width: 50%;
-}
-
-form input, form button {
   padding: 10px;
 }
 
-form button {
-  min-width: 75px;
+.app .appWrapper form legend {
+  margin: 50px 0;
+}
+
+.app .appWrapper form label {
+  margin: 20px 0 0;
+  min-width: 90px;
+}
+
+.app .appWrapper form input {
+  margin: 20px 0;
+  min-width: 200px;
+  width: 50%;
+  padding: 20px;
+}
+
+.app .appWrapper form button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: 30px;
+  min-width: 165px;
+  padding: 20px 30px 20px 20px;
+  position: relative;
+  right: 25%;
 }
 
 .results {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: absolute;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto;
+  margin-left: 20px;
+  padding-bottom: 60px;
+  left: 30%;
+  top: 37%;
+  width: 55%;
 }
 
 footer {
@@ -422,4 +493,31 @@ footer .flexBox i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 1200px) {
+  .appWrapper form fieldset {
+    padding: 10px 10px 10px 0;
+    width: 100%;
+    width: 53vw;
+  }
+  .appWrapper form button {
+    right: initial;
+  }
+  .results {
+    left: 35%;
+    top: 37%;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 900px) {
+  .appWrapper form button {
+    right: 25%;
+  }
+  .results {
+    left: 0%;
+    top: 0%;
+  }
 }

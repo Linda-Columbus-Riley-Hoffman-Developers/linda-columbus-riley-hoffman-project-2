@@ -87,7 +87,7 @@ weatherApp.startEventListener = () => {
 // Function to display weather data on the page
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Math.round to present only a whole number
-    weatherApp.p.textContent = Math.round(todaysDataFromApi.main.temp - 273.15);
+    weatherApp.p.textContent = `${Math.round(objectDataFromApi.main.temp - 273.15)}° C`;
     // Targeting the weather condition for icon
     const weatherCondition = todaysDataFromApi.weather[0].main;
     // Connecting corresponding weather icon to weather condition

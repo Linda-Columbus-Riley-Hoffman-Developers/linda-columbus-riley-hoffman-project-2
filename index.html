@@ -1,3 +1,4 @@
+<!-- STYLING BRANCH -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,7 @@
             </div>
         </section> -->
         <section class="app">
-            <div class="wrapper flexBox">
+            <div class="wrapper flexBox appWrapper">
                 <form action="_blank">
                     <fieldset>
                         <legend>Find out the temperature anywhere in the world!</legend>
@@ -39,9 +40,9 @@
                         <label for="search">Enter a "city" or "city, country":</label>
                         <input type="search" name="search" placeholder="search" id="search">
                     </fieldset>
-                    <button>Search</button>
+                    <button class="smallScreenButton">Search</button>
                 </form>
-                <div class="results">
+                <div class="results flexBox">
                     <!-- API data populates here -->
                     <span class="displayIcon"></span>
                 </div>
