@@ -30,36 +30,41 @@ li {
 form, .results, footer {
     display: flex;
 }
-
-form {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    fieldset {
-        border: none;
-    }
-    label, button {
-        min-width: 85px;
-        width: 25%;
-    }
-    input {
-        min-width: 120px;
-        width: 50%;
-    }   
-    input, button {
-        padding: 10px;
-    }
-
-    button {
-        min-width: 75px;
+.appWrapper {
+    padding: 20px;
+    form {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        fieldset {
+            border: none;
+            padding: 10px;
+        }
+        label, button {
+            min-width: 85px;
+            width: 25%;
+        }
+        input {
+            margin-top: 5px;
+            min-width: 120px;
+            width: 50%;
+        }   
+        input, button {
+            padding: 10px;
+        }
+    
+        button {
+            align-self: flex-end;
+            min-width: 75px;
+        }
     }
 }
 
 .results {
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
-        margin: auto;
+        margin-left: 20px;
     }
 
 footer {

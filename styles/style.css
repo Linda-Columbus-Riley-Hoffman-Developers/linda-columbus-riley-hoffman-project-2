@@ -260,6 +260,23 @@ legend {
   font-size: 1.6rem;
 }
 
+.results p {
+  font-size: 3rem;
+}
+
+.results i {
+  font-size: 3.5rem;
+  margin-right: 20px;
+}
+
+.fa-cloud {
+  color: #6980cc;
+}
+
+.fa-sun {
+  color: #e6bb00;
+}
+
 footer i {
   font-size: 2rem;
 }
@@ -299,7 +316,10 @@ form, .results, footer {
   display: flex;
 }
 
-form {
+.appWrapper {
+  padding: 20px;
+}
+.appWrapper form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -311,32 +331,36 @@ form {
           justify-content: space-between;
   width: 80%;
 }
-form fieldset {
+.appWrapper form fieldset {
   border: none;
+  padding: 10px;
 }
-form label, form button {
+.appWrapper form label, .appWrapper form button {
   min-width: 85px;
   width: 25%;
 }
-form input {
+.appWrapper form input {
+  margin-top: 5px;
   min-width: 120px;
   width: 50%;
 }
-form input, form button {
+.appWrapper form input, .appWrapper form button {
   padding: 10px;
 }
-form button {
+.appWrapper form button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   min-width: 75px;
 }
 
 .results {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto;
+  margin-left: 20px;
 }
 
 footer {
