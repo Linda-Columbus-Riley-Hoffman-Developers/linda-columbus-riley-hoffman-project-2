@@ -12,6 +12,10 @@ header {
     background-size: cover;
     height: 90vh;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 header, section, footer {
@@ -63,6 +67,7 @@ form {
     }
 
 footer {
+    background-color: #7b625e;
     justify-content: space-between;
     .flexBox {
         align-items: center;
