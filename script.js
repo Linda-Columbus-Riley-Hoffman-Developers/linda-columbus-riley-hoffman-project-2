@@ -23,9 +23,10 @@ weatherApp.startEventListener = () => {
     weatherApp.form.addEventListener(`submit`, function (event) {
         // prevent page reload on form submissions
         event.preventDefault();
-        // Clear contents of results and displayIcon divs
+        // Clear contents of results
         weatherApp.p.textContent = ''
         weatherApp.displayIcon.textContent = ''
+        weatherApp.forecastOl.textContent = ''
        
         // Save user's search string in a variable
         weatherApp.userSearch = weatherApp.searchInput.value;
@@ -125,40 +126,6 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
         weatherApp.forecastOl.appendChild(li)
     })
 }
-
-// // method to display photos on the page
-// galleryApp.displayPhotos = (arrayDataFromApi) => {
-//     // query the DOM for the <ul>
-//     const ul = document.querySelector(`ul`);
-//     arrayDataFromApi.forEach((item) => {
-//         // create a li element
-//         const li = document.createElement(`li`);
-//         // create an image element
-//         const img = document.createElement(`img`);
-//         // add content to the img element (src & alt text)
-//         img.src = item.urls.regular;
-//         img.alt = item.alt_description;
-//         // appending the img element to the li
-//         li.appendChild(img);
-//         ul.appendChild(li);
-//     })
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 weatherApp.init = () => {
     // Listen for Form Submission
