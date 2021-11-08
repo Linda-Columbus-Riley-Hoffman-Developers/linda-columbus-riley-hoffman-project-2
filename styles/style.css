@@ -447,6 +447,24 @@ form, .results, footer {
   padding: 10px;
 }
 
+.app .appWrapper form fieldset .flexBox {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.app .appWrapper form fieldset .flexBox input[type="radio"] {
+  margin: 0;
+  min-width: 40px;
+  padding: 0;
+  width: 40px;
+}
+
+.app .appWrapper form fieldset .searchLabel {
+  margin-right: 20px;
+}
+
 .app .appWrapper form legend {
   margin: 50px 0;
 }
@@ -489,14 +507,16 @@ form, .results, footer {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin-left: 20px;
   padding-bottom: 60px;
-  left: 30%;
+  left: 90%;
   top: 37%;
-  width: 55%;
+  white-space: nowrap;
 }
 
 footer {
@@ -555,18 +575,77 @@ footer .flexBox i {
     right: initial;
   }
   .results {
-    left: 35%;
+    left: 85%;
     top: 37%;
   }
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 900px) {
-  .appWrapper form button {
-    right: 25%;
+  h1 {
+    font-size: 8.5rem;
+  }
+  .appWrapper form.form {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+  }
+  .appWrapper form.form fieldset.fieldset {
+    padding: 0;
+  }
+  .appWrapper form.form fieldset.fieldset legend.legend {
+    margin: 0px 0 29px;
+  }
+  .appWrapper form.form fieldset.fieldset .smallScreenGrid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 0.5fr 1fr;
+        grid-template-columns: 0.5fr 1fr;
+  }
+  .appWrapper form.form fieldset.fieldset .smallScreenGrid label {
+    margin: 20px 0;
+    white-space: nowrap;
+  }
+  .appWrapper form.form fieldset.fieldset input[type="search"] {
+    width: 100%;
+  }
+  .appWrapper form.form button.smallScreenButton {
+    -ms-flex-item-align: initial;
+        -ms-grid-row-align: initial;
+        align-self: initial;
+    position: static;
+    width: 100%;
   }
   .results {
+    left: 75%;
+    top: initial;
+    bottom: 90%;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 7.5rem;
+  }
+  .wrapper {
+    width: 90%;
+  }
+  .appWrapper form.form {
+    width: 100%;
+  }
+  .appWrapper form.form fieldset.fieldset {
+    width: 100%;
+  }
+  .results {
+    margin-left: 0;
     left: 0%;
-    top: 0%;
+    top: initial;
+    bottom: 92%;
   }
 }
