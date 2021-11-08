@@ -15,7 +15,7 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3ac59313ce.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -32,16 +32,16 @@
         </section> -->
         <section class="app">
             <div class="wrapper flexBox appWrapper">
-                <form action="_blank">
-                    <fieldset>
-                        <legend>Find out the temperature anywhere in the world!</legend>
-                        <div class="flexBox">
+                <form action="_blank" class="form">
+                    <fieldset class="fieldset">
+                        <legend class="legend">Find out the temperature anywhere in the world!</legend>
+                        <div class="flexBox smallScreenGrid">
                             <input type="radio" id="now" name="when">
                             <label for="now">Right Now</label>
                             <input type="radio" id="sevenDay" name="when">
-                            <label for="sevenDay">Seven Day Forecast</label>
+                            <label for="sevenDay">Five Day Forecast</label>
                         </div>
-                        <label for="search">Enter a "city" or "city, country":</label>
+                        <label for="search" class="searchLabel">Enter a "city" or "city, country":</label>
                         <input type="search" name="search" placeholder="search" id="search">
                     </fieldset>
                     <button class="smallScreenButton">Search</button>

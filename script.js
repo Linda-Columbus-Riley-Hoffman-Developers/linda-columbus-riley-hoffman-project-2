@@ -260,11 +260,12 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
     // Targeting the weather condition for icon
     const weatherCondition = todaysDataFromApi.weather[0].main;
+    console.log(weatherCondition)
     // Connecting corresponding weather icon to weather condition
     if (weatherCondition === `Clouds`) {
-        weatherApp.displayIcon.innerHTML = `<i class="fas fa-cloud"></i>`
+        weatherApp.displayIcon.innerHTML = '<i class="fas fa-cloud"></i>'
     } else if (weatherCondition === `Clear`) {
-        weatherApp.displayIcon.innerHTML = `<i class="fas fa-sun"></i>`
+        weatherApp.displayIcon.innerHTML = '<i class="fas fa-sun"></i>'
     }
 
     // Publish results to the page
