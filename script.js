@@ -48,10 +48,14 @@ weatherApp.startEventListener = () => {
         weatherApp.userSearch = weatherApp.searchInput.value;
         // If user has selected Five Day forecast
         if (weatherApp.fiveDay.checked) {
+            // Remove absolute positioning to display forecast in result box
+            weatherApp.resultsDiv.style.position = 'static'
             // Pass user query to forcast API
             weatherApp.getDataFive(weatherApp.userSearch);
         // If they have not selected Five Day Forecast
         } else {
+            // Add absolute positioning to display todays temperature in result box
+            weatherApp.resultsDiv.style.position = 'absolute'
             // Pass user query to current day API
             weatherApp.getDataOne(weatherApp.userSearch);
         }

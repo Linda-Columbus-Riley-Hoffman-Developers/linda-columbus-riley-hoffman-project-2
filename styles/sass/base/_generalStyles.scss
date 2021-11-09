@@ -64,7 +64,7 @@ form, .results, footer {
             align-items: center;
             display: flex;
             justify-content: space-between;
-            padding: 20px;
+            padding: 20px 0px 20px 20px;
             fieldset {
                 border: none;
                 padding: 10px;
@@ -84,6 +84,7 @@ form, .results, footer {
             }
             legend {
                 margin: 50px 0; 
+                white-space: nowrap;
             }
             label {
                 margin: 20px 0 0;
@@ -131,6 +132,16 @@ form, .results, footer {
         white-space:nowrap;
     }
 
+.forecast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+        column-gap: 40px;
+        row-gap: 110px;
+        margin: 0;
+    }    
+    
+
 footer {
     background-color: $footerBackgroundColor;
     justify-content: space-between;
@@ -174,7 +185,10 @@ footer {
             fieldset {
                 padding: 10px 10px 10px 0;
                 width: 100%;
-                width: 53vw;   
+                width: 53vw; 
+                legend.legend {
+                    white-space: normal;
+                }  
             }
             button {
                 right: initial;
@@ -193,6 +207,8 @@ footer {
         font-size: 8.5rem;
     }
     .appWrapper {
+        flex-direction: column;
+        justify-content: flex-end;
         form.form {
             align-items: flex-start;
             flex-direction: column;
@@ -211,7 +227,7 @@ footer {
                     }
                 }
                 input[type="search"] {
-                    width: 100%;
+                    width: 68vw;
                 }
             }
             button.smallScreenButton {
@@ -222,17 +238,32 @@ footer {
         }
     } 
     .results {
+        position: static;
         left: 75%;
         top: initial;
         bottom: 90%;
     } 
+    .forecast {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0;
+        column-gap: 40px;
+        row-gap: 110px;
+        margin: 85px 0 0;
+    }
 }
 
 /* Landscape phones and down */
 @media (max-width: 600px) {
+    header {
+        height: 50vh
+    }
     h1 {
-        font-size: 7.5rem;
+        font-size: 7rem;
     } 
+    h2 {
+        font-size: 4.5rem; 
+    }
     .wrapper {
         width: 90%;
     }
@@ -241,15 +272,16 @@ footer {
            width: 100%;
         fieldset.fieldset {
                width: 100%;
+               input[type="search"] {
+                   width: 100%;
+               }
         }
        }
    }
     
     .results {
-        margin-left: 0;
-        left: 0%;
-        top: initial;
-        bottom: 92%;
+        // !important overide style.position = 'absolute' for small screens
+        position: static !important; 
     } 
   
 }
