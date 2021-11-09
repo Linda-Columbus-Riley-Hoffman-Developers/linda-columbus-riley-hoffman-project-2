@@ -144,7 +144,6 @@ footer {
 }
 
 .skip-link {position: absolute; left: -1000px; top: 5px;z-index: 999; background: white; color: black;}
-
 .skip-link:focus {left: 0;}
 
 .wrapper {
@@ -155,6 +154,15 @@ footer {
 
 .flexBox {
     display: flex;
+}
+
+.skip-link {
+    height: 79px;
+    padding: 20px 50px;
+    text-align: center;
+    background-color: #7b625e;
+    color: #f0eaea;
+    border: none;
 }
 
 // Media Queries
