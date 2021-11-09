@@ -18,6 +18,22 @@ weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 
+
+// Variable to hold today's date
+weatherApp.today = new Date();
+weatherApp.date = (weatherApp.today.getMonth() + 1) + '-' + weatherApp.today.getDate();
+console.log(weatherApp.date, 'date')
+weatherApp.tomorrow = new Date();
+
+    // today's date + 1 to return all dates in forecast
+for (let i = 1; i <= 4; i++) {
+    weatherApp.tomorrow.setDate(weatherApp.tomorrow.getDate());
+    // FIX: logging todays date for times instead of consecutive days
+    console.log(weatherApp.tomorrow, 'incremented dates')
+}
+
+
+
 // Function to call the event listener
 weatherApp.startEventListener = () => {
     weatherApp.form.addEventListener(`submit`, function (event) {
@@ -121,6 +137,8 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
         // create a p element
         const forecastP = document.createElement(`p`);
         console.log(day)
+        
+
         // Capture data from API to publish
         forecastP.textContent = `${Math.round(day['temp'])}° C`
         li.appendChild(forecastP);
