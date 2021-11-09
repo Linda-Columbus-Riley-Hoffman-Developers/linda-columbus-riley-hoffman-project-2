@@ -137,6 +137,7 @@ history.pushState("", document.title, window.location.pathname + window.location
 weatherApp.init = () => {
     // Listen for Form Submission
     weatherApp.startEventListener()
+    cleanUrl()
 
 }
 
