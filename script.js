@@ -103,12 +103,31 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
     // Targeting the weather condition for icon
     const weatherCondition = todaysDataFromApi.weather[0].main;
+    const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
     // Connecting corresponding weather icon to weather condition
-    if (weatherCondition === `Clouds`) {
-        weatherApp.displayIcon.innerHTML = '<i class="fas fa-cloud"></i>'
-    } else if (weatherCondition === `Clear`) {
-        weatherApp.displayIcon.innerHTML = '<i class="fas fa-sun"></i>'
+
+    
+    const weatherIcon = document.createElement(`img`)
+
+    if (weatherConditionIcon === `11d`) {
+        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Thunderstorm">`
+    } else if (weatherConditionIcon === `09d`) {
+        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Drizzle">`
+    } else if (weatherConditionIcon === `04d`) {
+        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/04d@2x.png">`
+    } else if (weatherConditionIcon === `01n`) {
+        weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/01n@2x.png">`
     }
+
+
+
+
+
+    // if (weatherCondition === `Clouds`) {
+    //     weatherApp.displayIcon.innerHTML = '<i class="fas fa-cloud"></i>'
+    // } else if (weatherCondition === `Clear`) {
+    //     weatherApp.displayIcon.innerHTML = '<i class="fas fa-sun"></i>'
+    // }
 
     // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
@@ -123,10 +142,17 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
         const li = document.createElement(`li`);
         // create a h3 & p element to hold data
         const forecastP = document.createElement(`p`);
-        const forecastDateHeader = document.createElement(`h3`)
+        const forecastDateHeader = document.createElement(`h3`);
+        const numMonth = `${day.datetimeStr.substring(5, 7)}`;
 
         // Capture dates and temperature data from API to publish
-        forecastDateHeader.textContent = `${day.datetimeStr.substring(5, 10)}`;
+        // forecastDateHeader.textContent = `${day.datetimeStr.substring(5, 10)}`;
+        // console.log(day.datetimeStr.substring(5, 7))
+        if (numMonth === `11`) {
+            forecastDateHeader.textContent = `Nov ` + `${day.datetimeStr.substring(8, 10)}`
+        }
+
+
         forecastP.textContent = `${Math.round(day.temp)}° C`
 
         // Append data to created elements

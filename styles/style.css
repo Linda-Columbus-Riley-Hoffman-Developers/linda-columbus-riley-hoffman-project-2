@@ -420,6 +420,10 @@ img {
   display: block;
 }
 
+.displayIcon img {
+  max-width: initial;
+}
+
 li {
   list-style: none;
 }
@@ -518,9 +522,9 @@ form, .results, footer {
 
 .results {
   position: absolute;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   -webkit-box-pack: center;
@@ -714,4 +718,3 @@ footer .flexBox i {
     position: static !important;
   }
 }
-/*# sourceMappingURL=style.css.map */
