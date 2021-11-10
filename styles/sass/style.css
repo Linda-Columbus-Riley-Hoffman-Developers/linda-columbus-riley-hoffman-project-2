@@ -259,6 +259,7 @@ p {
   font-size: 1.6rem;
 }
 
+h3,
 label,
 input,
 input::-webkit-input-placeholder,
@@ -269,6 +270,7 @@ legend,
   text-decoration: none;
 }
 
+h3,
 label,
 input,
 input:-ms-input-placeholder,
@@ -279,6 +281,7 @@ legend,
   text-decoration: none;
 }
 
+h3,
 label,
 input,
 input::-ms-input-placeholder,
@@ -289,6 +292,7 @@ legend,
   text-decoration: none;
 }
 
+h3,
 label,
 input,
 input::placeholder,
@@ -710,3 +714,4 @@ footer .flexBox i {
     position: static !important;
   }
 }
+/*# sourceMappingURL=style.css.map */

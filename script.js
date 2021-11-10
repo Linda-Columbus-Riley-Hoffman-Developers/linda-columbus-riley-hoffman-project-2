@@ -18,13 +18,6 @@ weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 
-// Variable to hold today's date
-weatherApp.today = new Date();
-weatherApp.tomorrow = new Date();
-weatherApp.dayOfMonth = weatherApp.today.getDate()
-// console.log(weatherApp.dayOfMonth)
-
-
 // Function to call the event listener
 weatherApp.startEventListener = () => {
     weatherApp.form.addEventListener(`submit`, function (event) {
@@ -41,7 +34,7 @@ weatherApp.startEventListener = () => {
         if (weatherApp.fiveDay.checked) {
             // Remove absolute positioning to display forecast in result box
             weatherApp.resultsDiv.style.position = 'static'
-            // Pass user query to forcast API
+            // Pass user query to forecast API
             weatherApp.getDataFive(weatherApp.userSearch);
             // Display dates
             weatherApp.date
@@ -93,7 +86,6 @@ weatherApp.getDataFive = (queryFive) => {
     fetch(urlFiveDay)
         .then((response) => {
             if (response.ok) {
-                // console.log(response)
                 return response.json();
             } else {
                 alert(`Oops that doesn't look like a city name. Try again!`);
@@ -101,7 +93,6 @@ weatherApp.getDataFive = (queryFive) => {
             }
         })
         .then((jsonResponse) => {
-            // console.log(jsonResponse, 'forecast');
             weatherApp.displayForecastData(jsonResponse);
         })
 }
@@ -126,48 +117,25 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
 
 // Function to display weather data on the page
 weatherApp.displayForecastData = (forecastDataFromApi) => {
-    const values = forecastDataFromApi['locations'][weatherApp.userSearch]['values'];
+    const values = forecastDataFromApi.locations[weatherApp.userSearch].values;
     values.forEach((day) => {
         // create li element
         const li = document.createElement(`li`);
-        // create a p element
+        // create a h3 & p element to hold data
         const forecastP = document.createElement(`p`);
+        const forecastDateHeader = document.createElement(`h3`)
 
-        // Capture temperature data from API to publish
-        forecastP.textContent = `${Math.round(day['temp'])}° C`
+        // Capture dates and temperature data from API to publish
+        forecastDateHeader.textContent = `${day.datetimeStr.substring(5, 10)}`;
+        forecastP.textContent = `${Math.round(day.temp)}° C`
 
+        // Append data to created elements
+        li.appendChild(forecastDateHeader);
         li.appendChild(forecastP);
         weatherApp.forecastOl.appendChild(li)
         
         cleanUrl()
     })
-
-    // Display forecast dates, using loop
-    // Create an empty array to store the returned weatherApp.date looped strings
-    const forecastDates = []
-
-    // Loop to obtain today + future 4 calendar dates for forecast
-    for (let i = weatherApp.dayOfMonth; i <= weatherApp.dayOfMonth + 4; i++) {
-        weatherApp.tomorrow.setDate(i);
-
-        weatherApp.date = (weatherApp.tomorrow.getMonth() + 1) + '-' + weatherApp.tomorrow.getDate();
-
-        // Convert the strings into array properties
-        forecastDates.push(weatherApp.date)
-        }
-
-    // forEach to append calendar dates to previously created <li> in values.forEach()
-    forecastDates.forEach((date) => {
-        const dateP = document.createElement(`p`);
-        // console.log(dateP, `this is dateP`)
-        dateP.innerText = date;
-        // console.log(date, `this is date`)
-        const forecastLI = document.querySelector(`li:last-child`);
-        forecastLI.appendChild(dateP)
-    })
-    
-        console.log(forecastDates)
-
 }
 
 // Remove #main from url if links to #main (skip to, header arrow) are clicked
@@ -179,11 +147,12 @@ weatherApp.init = () => {
     // Listen for Form Submission
     weatherApp.startEventListener()
     cleanUrl()
-
 }
 
 // Kickoff the app 🏈
 weatherApp.init();
+
+
 
 
 // var scrollV, scrollH, loc = window.location;
@@ -243,3 +212,37 @@ weatherApp.init();
 //                 weatherApp.displayWeatherData(jsonResponse);
 //             })
 // }
+
+// Variable to hold today's date
+// weatherApp.today = new Date();
+// weatherApp.tomorrow = new Date();
+// weatherApp.dayOfMonth = weatherApp.today.getDate()
+// console.log(weatherApp.dayOfMonth)
+
+    /*
+    // Display forecast dates, using loop
+    // Create an empty array to store the returned weatherApp.date looped strings
+    const forecastDates = []
+
+    // Loop to obtain today + future 4 calendar dates for forecast
+    for (let i = weatherApp.dayOfMonth; i <= weatherApp.dayOfMonth + 4; i++) {
+        weatherApp.tomorrow.setDate(i);
+
+        weatherApp.date = (weatherApp.tomorrow.getMonth() + 1) + '-' + weatherApp.tomorrow.getDate();
+
+        // Convert the strings into array properties
+        forecastDates.push(weatherApp.date)
+        }
+
+    // forEach to append calendar dates to previously created <li> in values.forEach()
+    forecastDates.forEach((date) => {
+        const dateP = document.createElement(`p`);
+        // console.log(dateP, `this is dateP`)
+        dateP.innerText = date;
+        // console.log(date, `this is date`)
+        // const forecastLI = document.querySelector(`li:last-child`);
+        // forecastLI.appendChild(dateP)
+    })
+    
+        console.log(forecastDates)
+        */
