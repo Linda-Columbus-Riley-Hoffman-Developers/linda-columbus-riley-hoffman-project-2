@@ -17,6 +17,7 @@ weatherApp.fiveDay = document.getElementById(`fiveDay`)
 weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
+weatherApp.resultsLoadHere = document.getElementsByClassName(`mobileShow`);
 
 // Function to call the event listener
 weatherApp.startEventListener = () => {
@@ -91,15 +92,15 @@ weatherApp.getDataFive = (queryFive) => {
     })
     fetch(urlFiveDay)
         .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert(`Oops that doesn't look like a city name. Try again!`);
-                weatherApp.userSearch = ``;
-            }
+            return response.json();
         })
         .then((jsonResponse) => {
-            weatherApp.displayForecastData(jsonResponse);
+            if (jsonResponse.errorCode) {
+                alert(`Oops that doesn't look like a city name. Try again!`);
+                weatherApp.userSearch = ``;
+            } else {
+                weatherApp.displayForecastData(jsonResponse)
+            }
         })
 }
 
