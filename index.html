@@ -22,7 +22,7 @@
         <a href="#main" class="skip-link">Skip To Content</a>
         <h1>Weather App</h1>
         <h2>your weather app</h2>
-        <a href="#main"><i class="fas fa-chevron-down"></i></a>
+        <a href="#main" aria-hidden="true" tabindex="-1"><i class="fas fa-chevron-down"></i></a>
     </header>
     <main id="main">
         <!-- <section class="instructions">
@@ -36,10 +36,15 @@
                     <fieldset class="fieldset">
                         <legend class="legend">Find out the temperature anywhere in the world!</legend>
                         <div class="flexBox smallScreenGrid">
-                            <input type="radio" id="now" name="when">
-                            <label for="now">Right Now</label>
-                            <input type="radio" id="fiveDay" name="when">
-                            <label for="fiveDay">Five Day Forecast</label>
+                            <label for="now" class="radioBox">
+                                <input type="radio" id="now" name="when" class="radioInput">
+                                <span class="customRadio"></span>
+                            Right Now</label>
+                            <label for="fiveDay" class="radioBox">
+                                <input type="radio" id="fiveDay" 
+                            name="when" class="radioInput">
+                            <span class="customRadio"></span>
+                            Five Day Forecast</label>
                         </div>
                         <label for="search" class="searchLabel">Enter a "city" or "city, country":</label>
                         <input type="search" name="search" placeholder="search" class="search" id="search">
@@ -47,7 +52,7 @@
                     <button class="smallScreenButton">Search</button>
                 </form>
                 <div class="results flexBox">
-                    <!-- API data populates here -->
+                    <p class=mobileShow>Results load here.</p>
                     <span class="displayIcon"></span>
                     <ol class="forecast"></ol>
                 </div>
@@ -55,11 +60,11 @@
         </section>
     </main>
     <footer>
-        <p><a href="https://junocollege.com/">Created at Juno College of Technology</a></p>
+        <p><a href="https://junocollege.com/" class="createdAtJuno">Created at Juno College of Technology</a></p>
         <div class="flexBox">
-            <p><a href="https://github.com/lindacolumbus">Linda Columbus</a> | <a
-                    href="https://github.com/Riley-Hoffman">Riley Hoffman</a> | Developers</p>
-            <a href="https://github.com/Linda-Columbus-Riley-Hoffman-Developers"><i class="fab fa-github"></i></a>
+            <p><a href="https://github.com/lindacolumbus">Linda Columbus</a> <span>|</span> <a
+                    href="https://github.com/Riley-Hoffman">Riley Hoffman</a> <span>|</span></p>
+            <a href="https://github.com/Linda-Columbus-Riley-Hoffman-Developers">Developers <i class="fab fa-github"></i></a>
         </div>
     </footer>
     <script src="./script.js"></script>

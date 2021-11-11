@@ -1,3 +1,7 @@
+body {
+    color: #332c2a;
+}
+
 h1 {
     font-family: 'Josefin Sans', sans-serif;
     @include fontStyle (14rem, 700);
