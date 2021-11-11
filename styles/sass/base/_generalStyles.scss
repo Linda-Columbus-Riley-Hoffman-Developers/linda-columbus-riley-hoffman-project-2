@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    background: #cfbfb7;
 }
 
 body, h1, h2, h3, h4, p, nav, ul, li, button {
@@ -40,6 +41,10 @@ header, section, form, footer {
     padding: 20px;
 }
 
+main {
+background-color: $backgroundColor;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -53,12 +58,14 @@ li {
     list-style: none;
 }
 
-main {
-    background-color: $backgroundColor;
-}
-
 form, .results, footer {
     display: flex;
+}
+
+input:focus,
+a:focus,
+textarea:focus {
+    outline: 4px solid #7B625E;
 }
 
 .app {
@@ -144,14 +151,18 @@ form, .results, footer {
                 align-self: flex-end;
                 margin-bottom: 30px;
                 // min-width: 165px;
-                height: 79px;
-                padding: 20px 50px;
+                padding: 25px 50px;
                 position: relative;
                 right: 25%;
                 text-align: center;
                 background-color: $footerBackgroundColor;
                 color: $footerTextColor;
                 border: none;
+            }
+            button:focus {
+                outline: 4px solid #f1a87d;
+                padding: 21px 46px;
+                margin: 0 0 34px 2px
             }
         }
     }
@@ -203,19 +214,34 @@ form, .results, footer {
         margin: 0;
         width: 100%;
     }    
-    
 
 footer {
     background-color: $footerBackgroundColor;
     justify-content: space-between;
+    font-size: 1.6rem;
+    font-family: "Nunito Sans", sans-serif;
     .flexBox {
         align-items: center;
         justify-content: space-between;
-        i {
-            margin-left: 20px;
+        a {
+            margin: 0 20px 0;
+            padding: 1px;
+            i {
+                margin-left: 20px;
+            }
+        }
+        a:focus {
+            outline-color: #f1a87d;
         }
     }
 }
+
+a.createdAtJuno {
+    margin-left: 25px;
+}
+a.createdAtJuno:focus {
+            outline-color: #f1a87d;
+        }
 
 .skip-link {position: absolute; left: -1000px; top: 5px;z-index: 999; background: white; color: black;}
 .skip-link:focus {left: 0;}
@@ -230,13 +256,21 @@ footer {
     display: flex;
 }
 
-.skip-link {
+.skip-link /* styling */ {
     height: 79px;
     padding: 20px 50px;
     text-align: center;
     background-color: #7b625e;
     color: #f0eaea;
     border: none;
+}
+
+.skip-link:focus {
+    outline-color: #f1a87d;
+}
+
+.mobileShow {
+        display: none;
 }
 
 // Media Queries
@@ -269,6 +303,9 @@ footer {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 900px) {
+    header {
+        height: 55vh;
+    }
     h1 {
         font-size: 8.5rem;
     }
@@ -326,7 +363,7 @@ footer {
 /* Landscape phones and down */
 @media (max-width: 600px) {
     header {
-        height: 50vh
+        height: 28vh;
     }
     h1 {
         font-size: 7rem;
@@ -334,24 +371,37 @@ footer {
     h2 {
         font-size: 4.5rem; 
     }
+    .fa-chevron-down {
+        display: none;
+    }
     .wrapper {
         width: 90%;
     }
-   .appWrapper {
-       form.form {
-           width: 100%;
-        fieldset.fieldset {
-               width: 100%;
-               input[type="search"] {
-                   width: 100%;
-               }
+    .app {
+        padding-top: 40px;
+        .appWrapper {
+            form.form {
+                width: 100%;
+                fieldset.fieldset {
+                    width: 100%;
+                    input[type="search"] {
+                        width: 100%;
+                    }
+                }
+                .smallScreenButton {
+                        margin-bottom: 60px;
+                    }
+            }
         }
-       }
    }
     
     .results {
         position: static; 
     } 
+
+    .mobileShow {
+        display: block;
+    }
   
 }
 

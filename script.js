@@ -35,6 +35,8 @@ weatherApp.startEventListener = () => {
             // Move resultsDiv to display forecast
             weatherApp.resultsDiv.style.left = '85%'
             weatherApp.resultsDiv.style.top = '0'
+            // Show Forcast ol
+            weatherApp.forecastOl.style.display = 'grid'
             // Pass user query to forecast API
             weatherApp.getDataFive(weatherApp.userSearch);
             // Display dates
@@ -44,6 +46,8 @@ weatherApp.startEventListener = () => {
             // Move resultsDiv to display one day
             weatherApp.resultsDiv.style.left = '90%'
             weatherApp.resultsDiv.style.top = '37%'
+            // Hide Forcast ol
+            weatherApp.forecastOl.style.display = 'none'
             // Pass user query to current day API
             weatherApp.getDataOne(weatherApp.userSearch);
         }
@@ -112,11 +116,11 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     const weatherIcon = document.createElement(`img`)
 
     if (weatherConditionIcon === `11d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Thunderstorm">`
+        weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Thunderstorm">`
     } else if (weatherConditionIcon === `09d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Drizzle">`
+        weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Drizzle">`
     } else if (weatherConditionIcon === `04d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/04d@2x.png">`
+        weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/04d@2x.png">`
     } else if (weatherConditionIcon === `01n`) {
         weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/01n@2x.png">`
     }

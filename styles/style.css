@@ -14,7 +14,7 @@ article, aside, footer, header, nav, section {
 
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 
 figcaption, figure, main {
@@ -33,7 +33,7 @@ hr {
 }
 
 pre {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -83,11 +83,11 @@ sub, sup {
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 audio, video {
@@ -136,7 +136,7 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
 }
 
 fieldset {
-  padding: .35em .75em .625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
@@ -206,7 +206,7 @@ template {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: '';
+  content: "";
   clear: both;
   height: 0;
 }
@@ -240,7 +240,7 @@ body {
 }
 
 h1 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 14rem;
   font-weight: 700;
   color: #2b1a16;
@@ -256,42 +256,29 @@ h2 {
 
 h2,
 button {
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
 }
 
 p {
   font-size: 1.6rem;
 }
 
-h3,
-label,
-input,
-input::-webkit-input-placeholder,
-button,
-legend,
-.skip-link {
+input::-webkit-input-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-h3,
-label,
-input,
-input:-ms-input-placeholder,
-button,
-legend,
-.skip-link {
+input::-moz-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-h3,
-label,
-input,
-input::-ms-input-placeholder,
-button,
-legend,
-.skip-link {
+input:-ms-input-placeholder {
+  font-size: 2.8rem;
+  text-decoration: none;
+}
+
+input::-ms-input-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
@@ -312,7 +299,7 @@ legend,
 label,
 input,
 .skip-link {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   color: #332c2a;
 }
 
@@ -342,21 +329,19 @@ footer i,
 footer a {
   color: #f0eaea;
 }
-
 footer p {
   font-size: 1.6rem;
 }
-
 footer a {
   text-decoration: none;
 }
-
 footer i {
   font-size: 2rem;
 }
 
 html {
   font-size: 62.5%;
+  background: #cfbfb7;
 }
 
 body, h1, h2, h3, h4, p, nav, ul, li, button {
@@ -382,7 +367,6 @@ header {
   text-align: center;
   position: relative;
 }
-
 header i {
   color: #ffecec;
   font-size: 3rem;
@@ -414,9 +398,12 @@ header i {
             transform: translateY(-30px);
   }
 }
-
 header, section, form, footer {
   padding: 20px;
+}
+
+main {
+  background-color: #f0e5dc;
 }
 
 img {
@@ -432,24 +419,24 @@ li {
   list-style: none;
 }
 
-main {
-  background-color: #f0e5dc;
-}
-
 form, .results, footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+input:focus,
+a:focus,
+textarea:focus {
+  outline: 4px solid #7B625E;
+}
+
 .app {
   padding: 110px 0 50px;
 }
-
 .app .appWrapper {
   position: relative;
 }
-
 .app .appWrapper form {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -462,19 +449,16 @@ form, .results, footer {
           justify-content: space-between;
   padding: 20px 0px 20px 20px;
 }
-
 .app .appWrapper form fieldset {
   border: none;
   padding: 10px;
 }
-
 .app .appWrapper form fieldset .flexBox {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-bottom: 20px;
   /* When the checkbox is checked, add a blue background */
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox {
   display: block;
   position: relative;
@@ -489,7 +473,6 @@ form, .results, footer {
   padding: 5px 0 0 47px;
   /* On mouse-over, add a grey background color */
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .radioInput {
   position: absolute;
   opacity: 0;
@@ -497,7 +480,6 @@ form, .results, footer {
   height: 0;
   width: 0;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .customRadio {
   position: absolute;
   top: 0;
@@ -507,29 +489,23 @@ form, .results, footer {
   background-color: #cfbfb7;
   border-radius: 50%;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox span.customRadio:hover {
   background-color: #5c5a7f;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
   background-color: #7B625E;
 }
-
 .app .appWrapper form fieldset .searchLabel {
   margin-right: 20px;
 }
-
 .app .appWrapper form legend {
   margin: 50px auto;
   white-space: nowrap;
 }
-
 .app .appWrapper form label {
   margin: 20px 0 0;
   min-width: 90px;
 }
-
 .app .appWrapper form input.search {
   margin: 20px 0;
   min-width: 200px;
@@ -538,19 +514,22 @@ form, .results, footer {
   border: none;
   background-color: #7b625e4a;
 }
-
 .app .appWrapper form button {
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-bottom: 30px;
-  height: 79px;
-  padding: 20px 50px;
+  padding: 25px 50px;
   position: relative;
   right: 25%;
   text-align: center;
   background-color: #7b625e;
   color: #f0eaea;
   border: none;
+}
+.app .appWrapper form button:focus {
+  outline: 4px solid #f1a87d;
+  padding: 21px 46px;
+  margin: 0 0 34px 2px;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -593,12 +572,11 @@ form, .results, footer {
 }
 
 .forecast {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   padding: 0;
   -webkit-column-gap: 50px;
+     -moz-column-gap: 50px;
           column-gap: 50px;
   row-gap: 78px;
   margin: 0;
@@ -610,8 +588,9 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
 }
-
 footer .flexBox {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -620,9 +599,23 @@ footer .flexBox {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-
-footer .flexBox i {
+footer .flexBox a {
+  margin: 0 20px 0;
+  padding: 1px;
+}
+footer .flexBox a i {
   margin-left: 20px;
+}
+footer .flexBox a:focus {
+  outline-color: #f1a87d;
+}
+
+a.createdAtJuno {
+  margin-left: 25px;
+}
+
+a.createdAtJuno:focus {
+  outline-color: #f1a87d;
 }
 
 .skip-link {
@@ -659,6 +652,14 @@ footer .flexBox i {
   border: none;
 }
 
+.skip-link:focus {
+  outline-color: #f1a87d;
+}
+
+.mobileShow {
+  display: none;
+}
+
 /* Portrait tablet and small desktops */
 @media (max-width: 1200px) {
   .appWrapper form fieldset {
@@ -672,6 +673,7 @@ footer .flexBox i {
   .appWrapper form button {
     right: initial;
   }
+
   .results {
     left: 85%;
     top: 37%;
@@ -680,12 +682,16 @@ footer .flexBox i {
     font-size: 4rem;
   }
 }
-
 /* Landscape phone to portrait tablet */
 @media (max-width: 900px) {
+  header {
+    height: 55vh;
+  }
+
   h1 {
     font-size: 8.5rem;
   }
+
   .appWrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -717,68 +723,84 @@ footer .flexBox i {
     margin: 0px 0 29px;
   }
   .appWrapper form.form fieldset.fieldset .smallScreenGrid {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .appWrapper form.form fieldset.fieldset .smallScreenGrid label {
     margin: 20px 0;
     white-space: nowrap;
   }
-  .appWrapper form.form fieldset.fieldset input[type="search"] {
+  .appWrapper form.form fieldset.fieldset input[type=search] {
     width: 68vw;
   }
   .appWrapper form.form button.smallScreenButton {
     -ms-flex-item-align: initial;
-        -ms-grid-row-align: initial;
         align-self: initial;
     position: static;
     width: 100%;
   }
+
   .results {
     position: static;
     left: 75%;
     top: initial;
     bottom: 90%;
   }
+
   .forecast {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
     -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
             column-gap: 40px;
     row-gap: 110px;
     margin: 85px 0 0;
   }
 }
-
 /* Landscape phones and down */
 @media (max-width: 600px) {
   header {
-    height: 50vh;
+    height: 28vh;
   }
+
   h1 {
     font-size: 7rem;
   }
+
   h2 {
     font-size: 4.5rem;
   }
+
+  .fa-chevron-down {
+    display: none;
+  }
+
   .wrapper {
     width: 90%;
   }
-  .appWrapper form.form {
+
+  .app {
+    padding-top: 40px;
+  }
+  .app .appWrapper form.form {
     width: 100%;
   }
-  .appWrapper form.form fieldset.fieldset {
+  .app .appWrapper form.form fieldset.fieldset {
     width: 100%;
   }
-  .appWrapper form.form fieldset.fieldset input[type="search"] {
+  .app .appWrapper form.form fieldset.fieldset input[type=search] {
     width: 100%;
   }
+  .app .appWrapper form.form .smallScreenButton {
+    margin-bottom: 60px;
+  }
+
   .results {
     position: static;
+  }
+
+  .mobileShow {
+    display: block;
   }
 }
