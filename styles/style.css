@@ -235,6 +235,10 @@ html {
   overflow: hidden;
 }
 
+body {
+  color: #332c2a;
+}
+
 h1 {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 14rem;
@@ -439,7 +443,7 @@ form, .results, footer {
 }
 
 .app {
-  padding: 50px 0;
+  padding: 110px 0 50px;
 }
 
 .app .appWrapper {
@@ -465,17 +469,51 @@ form, .results, footer {
 }
 
 .app .appWrapper form fieldset .flexBox {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-bottom: 20px;
+  /* When the checkbox is checked, add a blue background */
 }
 
-.app .appWrapper form fieldset .flexBox input[type="radio"] {
-  margin: 0;
-  min-width: 40px;
-  padding: 0;
-  width: 40px;
+.app .appWrapper form fieldset .flexBox .radioBox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 5px 0 0 47px;
+  /* On mouse-over, add a grey background color */
+}
+
+.app .appWrapper form fieldset .flexBox .radioBox .radioInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.app .appWrapper form fieldset .flexBox .radioBox .customRadio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #cfbfb7;
+  border-radius: 50%;
+}
+
+.app .appWrapper form fieldset .flexBox .radioBox span.customRadio:hover {
+  background-color: #5c5a7f;
+}
+
+.app .appWrapper form fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
+  background-color: #7B625E;
 }
 
 .app .appWrapper form fieldset .searchLabel {
@@ -483,18 +521,13 @@ form, .results, footer {
 }
 
 .app .appWrapper form legend {
-  margin: 50px 0;
+  margin: 50px auto;
   white-space: nowrap;
 }
 
 .app .appWrapper form label {
   margin: 20px 0 0;
   min-width: 90px;
-}
-
-.app .appWrapper form input[type=radio] {
-  height: 25px;
-  width: 25px;
 }
 
 .app .appWrapper form input.search {
@@ -520,6 +553,28 @@ form, .results, footer {
   border: none;
 }
 
+/* Create the checkmark/indicator (hidden when not checked) */
+.customRadio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.radioBox .radioInput:checked ~ .customRadio:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.radioBox .customRadio:after {
+  top: 10px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+}
+
 .results {
   position: absolute;
   -webkit-box-align: center;
@@ -543,10 +598,11 @@ form, .results, footer {
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   padding: 0;
-  -webkit-column-gap: 40px;
-          column-gap: 40px;
-  row-gap: 110px;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
+  row-gap: 78px;
   margin: 0;
+  width: 100%;
 }
 
 footer {
@@ -620,6 +676,9 @@ footer .flexBox i {
     left: 85%;
     top: 37%;
   }
+  .results .forecastP {
+    font-size: 4rem;
+  }
 }
 
 /* Landscape phone to portrait tablet */
@@ -649,14 +708,19 @@ footer .flexBox i {
   .appWrapper form.form fieldset.fieldset {
     padding: 0;
   }
+  .appWrapper form.form fieldset.fieldset .flexBox {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .appWrapper form.form fieldset.fieldset legend.legend {
     margin: 0px 0 29px;
   }
   .appWrapper form.form fieldset.fieldset .smallScreenGrid {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 0.5fr 1fr;
-        grid-template-columns: 0.5fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
   .appWrapper form.form fieldset.fieldset .smallScreenGrid label {
     margin: 20px 0;
@@ -715,6 +779,6 @@ footer .flexBox i {
     width: 100%;
   }
   .results {
-    position: static !important;
+    position: static;
   }
 }

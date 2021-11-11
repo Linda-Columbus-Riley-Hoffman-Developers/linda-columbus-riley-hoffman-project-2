@@ -36,10 +36,15 @@
                     <fieldset class="fieldset">
                         <legend class="legend">Find out the temperature anywhere in the world!</legend>
                         <div class="flexBox smallScreenGrid">
-                            <input type="radio" id="now" name="when">
-                            <label for="now">Right Now</label>
-                            <input type="radio" id="fiveDay" name="when">
-                            <label for="fiveDay">Five Day Forecast</label>
+                            <label for="now" class="radioBox">
+                                <input type="radio" id="now" name="when" class="radioInput">
+                                <span class="customRadio"></span>
+                            Right Now</label>
+                            <label for="fiveDay" class="radioBox">
+                                <input type="radio" id="fiveDay" 
+                            name="when" class="radioInput">
+                            <span class="customRadio"></span>
+                            Five Day Forecast</label>
                         </div>
                         <label for="search" class="searchLabel">Enter a "city" or "city, country":</label>
                         <input type="search" name="search" placeholder="search" class="search" id="search">

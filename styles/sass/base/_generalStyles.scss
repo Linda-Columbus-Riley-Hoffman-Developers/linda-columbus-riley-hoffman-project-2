@@ -62,7 +62,7 @@ form, .results, footer {
 }
 
 .app {
-    padding: 50px 0;
+    padding:110px 0 50px;
     .appWrapper {
         position: relative;
         form {
@@ -74,31 +74,63 @@ form, .results, footer {
                 border: none;
                 padding: 10px;
                 .flexBox {   
-                    justify-content: space-between;
+                    justify-content: space-around;
                     margin-bottom: 20px;
-                    input[type="radio"] {
-                        margin: 0;
-                        min-width: 40px;
-                        padding: 0;
-                        width: 40px;
+                    .radioBox {
+                        display: block;
+                        position: relative;
+                        padding-left: 35px;
+                        margin-bottom: 12px;
+                        cursor: pointer;
+                        font-size: 22px;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        padding: 5px 0 0 47px;
+                        .radioInput {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0
+                        }
+                        .customRadio {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 35px;
+                            width: 35px;
+                            background-color: #cfbfb7;
+                            border-radius: 50%;
+                        }
+                        /* On mouse-over, add a grey background color */
+                        span.customRadio:hover {
+                        background-color: #5c5a7f;
+                        }
                     }
+                    /* When the checkbox is checked, add a blue background */
+                    .radioBox .radioInput:checked ~ .customRadio {
+                    background-color: #7B625E;
+                    }   
                 }
                 .searchLabel {
                 margin-right: 20px;
                 }
             }
             legend {
-                margin: 50px 0; 
+                margin: 50px auto; 
                 white-space: nowrap;
             }
             label {
                 margin: 20px 0 0;
                 min-width: 90px;
             }
-            input[type=radio] {
-                height: 25px;
-                width: 25px;
-            }
+            // .radioBox {
+            //     input[type=radio] {
+                    
+            //     }
+            // }
             input.search {
                 margin: 20px 0;
                 min-width: 200px;
@@ -125,6 +157,31 @@ form, .results, footer {
     }
 }
 
+
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.customRadio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.radioBox .radioInput:checked ~ .customRadio:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.radioBox .customRadio:after {
+    top: 10px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+}
+
 .results {
         position: absolute;
         align-items: center;
@@ -141,9 +198,10 @@ form, .results, footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0;
-        column-gap: 40px;
-        row-gap: 110px;
+        column-gap: 50px;
+        row-gap: 78px;
         margin: 0;
+        width: 100%;
     }    
     
 
@@ -203,6 +261,9 @@ footer {
     .results {
         left: 85%;
         top: 37%;
+        .forecastP {
+            font-size: 4rem;       
+        }
     }  
 }
 
@@ -220,12 +281,16 @@ footer {
             padding: 0;
             fieldset.fieldset {
                 padding: 0; 
+                .flexBox {
+                    justify-content: space-between;
+                }
+                    
                 legend.legend {
                     margin: 0px 0 29px;
                 }
                 .smallScreenGrid {
                     display: grid;
-                    grid-template-columns: 0.5fr 1fr;
+                    grid-template-columns: 1fr 1fr;
                     label {
                         margin: 20px 0;
                         white-space: nowrap;
@@ -285,8 +350,7 @@ footer {
    }
     
     .results {
-        // !important overide style.position = 'absolute' for small screens
-        position: static !important; 
+        position: static; 
     } 
   
 }
