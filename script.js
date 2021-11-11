@@ -1,10 +1,10 @@
-
 // Namespace object
 const weatherApp = {};
 
-// Relevant API information
+// API information
 weatherApp.apiKey = `1903a471aab786101e6bcd6d7b0b6a07`;
 weatherApp.apiKeyFiveDay = `8CQY9SE2V7QTVGV5WP895DAZ5`;
+
 weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
 weatherApp.apiUrlFiveDay = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast`;
 
@@ -101,33 +101,31 @@ weatherApp.getDataFive = (queryFive) => {
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Math.round to present only a whole number
     weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
-    // Targeting the weather condition for icon
-    const weatherCondition = todaysDataFromApi.weather[0].main;
-    const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
-    // Connecting corresponding weather icon to weather condition
 
-    
+    // Targeting the weather condition for icon
+    const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
     const weatherIcon = document.createElement(`img`)
 
-    if (weatherConditionIcon === `11d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Thunderstorm">`
-    } else if (weatherConditionIcon === `09d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Drizzle">`
-    } else if (weatherConditionIcon === `04d`) {
-        weatherApp.resultsDiv.innerHTML = `<img src="http://openweathermap.org/img/wn/04d@2x.png">`
-    } else if (weatherConditionIcon === `01n`) {
-        weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/01n@2x.png">`
+    // Connecting corresponding weather icon to weather condition
+    const weatherIconFunction = (iconID, imgAlt) => {
+        if (weatherConditionIcon === iconID) {
+            weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`
+        }
     }
-
-
-
-
-
-    // if (weatherCondition === `Clouds`) {
-    //     weatherApp.displayIcon.innerHTML = '<i class="fas fa-cloud"></i>'
-    // } else if (weatherCondition === `Clear`) {
-    //     weatherApp.displayIcon.innerHTML = '<i class="fas fa-sun"></i>'
-    // }
+    weatherIconFunction(`11d`, `Thunderstorm`);
+    weatherIconFunction(`09d`, `Drizzle`);
+    weatherIconFunction(`10d`, `Rain`);
+    weatherIconFunction(`13d`, `Freezing rain or snow`);
+    weatherIconFunction(`50d`, `Daytime fog or haze`);
+    weatherIconFunction(`50n`, `Nighttime fog or haze`);
+    weatherIconFunction(`01d`, `Clear day`);
+    weatherIconFunction(`01n`, `Clear night`);
+    weatherIconFunction(`02d`, `Cloudy day`);
+    weatherIconFunction(`02n`, `Cloudy night`);
+    weatherIconFunction(`03d`, `Daytime scattered showers`);
+    weatherIconFunction(`03n`, `Nighttime scattered showers`);
+    weatherIconFunction(`04d`, `Overcast day`);
+    weatherIconFunction(`04n`, `Overcast night`);
 
     // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
@@ -146,13 +144,25 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
         const numMonth = `${day.datetimeStr.substring(5, 7)}`;
 
         // Capture dates and temperature data from API to publish
-        // forecastDateHeader.textContent = `${day.datetimeStr.substring(5, 10)}`;
-        // console.log(day.datetimeStr.substring(5, 7))
-        if (numMonth === `11`) {
-            forecastDateHeader.textContent = `Nov ` + `${day.datetimeStr.substring(8, 10)}`
+        const monthConversion = (numReturnMonth, wordMonth) => {
+            // Convert numerical month to spelled out month
+            if (numMonth === numReturnMonth) {
+                forecastDateHeader.textContent = `${wordMonth} ${day.datetimeStr.substring(8, 10)}`
+            }
         }
-
-
+        monthConversion(`01`, `Jan`);
+        monthConversion(`02`, `Feb`);
+        monthConversion(`03`, `Mar`);
+        monthConversion(`04`, `Apr`);
+        monthConversion(`05`, `May`);
+        monthConversion(`06`, `June`);
+        monthConversion(`07`, `July`);
+        monthConversion(`08`, `Aug`);
+        monthConversion(`09`, `Sept`);
+        monthConversion(`10`, `Oct`);
+        monthConversion(`11`, `Nov`);
+        monthConversion(`12`, `Dec`);
+      
         forecastP.textContent = `${Math.round(day.temp)}° C`
 
         // Append data to created elements
