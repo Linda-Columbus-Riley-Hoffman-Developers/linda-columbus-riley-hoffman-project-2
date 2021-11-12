@@ -39,6 +39,7 @@ weatherApp.startEventListener = () => {
             // Move resultsDiv to display forecast
             weatherApp.resultsDiv.style.left = '85%'
             weatherApp.resultsDiv.style.top = '0'
+            weatherApp.resultsDiv.style.padding = '0'
             // Show Forcast ol
             weatherApp.forecastOl.style.display = 'grid'
             // Pass user query to forecast API
@@ -50,6 +51,7 @@ weatherApp.startEventListener = () => {
             // Move resultsDiv to display one day
             weatherApp.resultsDiv.style.left = '85%'
             weatherApp.resultsDiv.style.top = '30%'
+            weatherApp.resultsDiv.style.padding = '75px 0 60px';
             // Hide Forcast ol
             weatherApp.forecastOl.style.display = 'none'
             // Pass user query to current day API
