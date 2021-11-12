@@ -65,7 +65,8 @@ form, .results, footer {
 input:focus,
 a:focus,
 textarea:focus,
-button:focus {
+button:focus,
+.radioInput:focus + .customRadio {
     outline: 4px solid #f1a87d;
 }
 
