@@ -649,6 +649,13 @@ a.createdAtJuno {
 
 .mobileShow {
   display: none;
+  color: #332c2a;
+  font-size: 3rem;
+  left: 50%;
+  top: 90%;
+  -webkit-animation: headerArrow 4s infinite;
+          animation: headerArrow 4s infinite;
+  padding-top: 30px;
 }
 
 /* Portrait tablet and small desktops */
@@ -758,6 +765,9 @@ a.createdAtJuno {
   header {
     height: 28vh;
   }
+  header a > .fa-chevron-down {
+    display: none;
+  }
 
   h1 {
     font-size: 7rem;
@@ -765,10 +775,6 @@ a.createdAtJuno {
 
   h2 {
     font-size: 4.5rem;
-  }
-
-  .fa-chevron-down {
-    display: none;
   }
 
   .wrapper {
@@ -788,11 +794,11 @@ a.createdAtJuno {
     width: 100%;
   }
   .app .appWrapper form.form .smallScreenButton {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
 
   .results {
-    padding-top: 30px;
+    padding-top: 0;
     position: static;
   }
 }

@@ -258,7 +258,17 @@ a.createdAtJuno {
 
 .mobileShow {
         display: none;
+        color: #332c2a;
+        font-size: 3rem;
+        left: 50%;
+        top: 90%;
+        animation: headerArrow 4s infinite;  
+        padding-top: 30px;      
 }
+
+
+
+
 
 // Media Queries
 
@@ -354,15 +364,15 @@ a.createdAtJuno {
 @media (max-width: 600px) {
     header {
         height: 28vh;
+        a > .fa-chevron-down {
+        display: none;
+    }
     }
     h1 {
         font-size: 7rem;
     } 
     h2 {
         font-size: 4.5rem; 
-    }
-    .fa-chevron-down {
-        display: none;
     }
     .wrapper {
         width: 90%;
@@ -379,14 +389,14 @@ a.createdAtJuno {
                     }
                 }
                 .smallScreenButton {
-                        margin-bottom: 60px;
+                        margin-bottom: 20px;
                     }
             }
         }
    }
     
     .results {
-        padding-top: 30px;
+        padding-top: 0;
         position: static; 
     } 
 }
