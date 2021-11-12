@@ -67,10 +67,11 @@ a:focus,
 textarea:focus,
 button:focus,
 .radioInput:focus + .customRadio {
-    outline: 4px solid #f1a87d;
+    outline: 4px solid $focusColor;
 }
 
 .app {
+    background-color: $backgroundColor;
     padding:110px 0 150px;
     .appWrapper {
         position: relative;
@@ -121,7 +122,7 @@ button:focus,
                     }
                     /* When the checkbox is checked, add a blue background */
                     .radioBox .radioInput:checked ~ .customRadio {
-                    background-color: #7B625E;
+                    background-color: $footerBackgroundColor;
                     }   
                 }
                 .searchLabel {
@@ -252,14 +253,14 @@ a.createdAtJuno {
     height: 79px;
     padding: 20px 50px;
     text-align: center;
-    background-color: #7b625e;
-    color: #f0eaea;
+    background-color: $footerBackgroundColor;
+    color: $footerTextColor;
     border: none;
 }
 
 .mobileShow {
         display: none;
-        color: #332c2a;
+        color: $bodyTextColor;
         font-size: 3rem;
         left: 50%;
         top: 90%;
