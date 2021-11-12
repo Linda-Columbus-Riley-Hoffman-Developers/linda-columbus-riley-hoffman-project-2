@@ -603,6 +603,21 @@ footer .flexBox i {
   border: none;
 }
 
+.modal {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  height: 300px;
+  width: 500px;
+  padding: 100px;
+  background-color: #7b625e;
+}
+
+.modal p {
+  font-size: 2rem;
+}
+
 /* Portrait tablet and small desktops */
 @media (max-width: 1200px) {
   .appWrapper form fieldset {

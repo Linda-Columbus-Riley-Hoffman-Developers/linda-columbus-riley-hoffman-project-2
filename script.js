@@ -17,6 +17,7 @@ weatherApp.fiveDay = document.getElementById(`fiveDay`)
 weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
+weatherApp.modal = document.querySelector(`.modal`);
 
 // Function to call the event listener
 weatherApp.startEventListener = () => {
@@ -58,16 +59,29 @@ weatherApp.getDataOne = (queryOne) => {
     fetch(url)
         .then((response) => {
             if (response.ok) {
-                console.log(response, 'first .then')
                 return response.json();
             } else {
-                alert(`Oops that doesn't look like a city name. Try again!`);
+                // alert(`Oops that doesn't look like a city name. Try again!`);
                 weatherApp.userSearch = ``;
+                throw new Error(response.statusText)
             }
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse, 'second .then');
             weatherApp.displayTodaysData(jsonResponse);
+        })
+        .catch((error) => {
+            if (error.message === `Not Found`) {
+                weatherApp.modal.style.display = `block`;
+                weatherApp.modal.innerHTML = `
+                <p>Oops that doesn't look like a city name. Try again!</p>
+                <button class="modalButton">Close</button>
+                `;
+
+                const modalButton = document.querySelector(`.modalButton`);
+                modalButton.addEventListener(`click`, function (modalEvent) {
+                    weatherApp.modal.style.visibility = `hidden`;
+                })
+            }
         })
 }
 
@@ -147,7 +161,7 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
         const monthConversion = (numReturnMonth, wordMonth) => {
             // Convert numerical month to spelled out month
             if (numMonth === numReturnMonth) {
-                forecastDateHeader.textContent = `${wordMonth} ${day.datetimeStr.substring(8, 10)}`
+                forecastDateHeader.textContent = `${wordMonth} ${day.datetimeStr.substring(8, 10)}`;
             }
         }
         monthConversion(`01`, `Jan`);

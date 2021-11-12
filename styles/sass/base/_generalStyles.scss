@@ -181,6 +181,20 @@ footer {
     border: none;
 }
 
+.modal {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    height: 300px;
+    width: 500px;
+    padding: 100px;
+    background-color: $footerBackgroundColor;
+    p {
+        font-size: 2rem;
+    }
+}
+
 // Media Queries
 
 /* Portrait tablet and small desktops */
