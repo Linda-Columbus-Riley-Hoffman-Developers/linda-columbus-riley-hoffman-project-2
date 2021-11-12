@@ -73,6 +73,7 @@ weatherApp.getDataOne = (queryOne) => {
             } else {
                 alert(`Oops that doesn't look like a city name. Try again!`);
                 weatherApp.userSearch = ``;
+                // Show chevron
                 weatherApp.resultsLoadHere.style.display = 'block'
             }
         })
@@ -102,7 +103,10 @@ weatherApp.getDataFive = (queryFive) => {
             if (jsonResponse.errorCode) {
                 alert(`Oops that doesn't look like a city name. Try again!`);
                 weatherApp.userSearch = ``;
+                // Show chevron
                 weatherApp.resultsLoadHere.style.display = 'block'
+                // Hide Forcast ol
+                weatherApp.forecastOl.style.display = 'none'
             } else {
                 weatherApp.displayForecastData(jsonResponse)
             }
