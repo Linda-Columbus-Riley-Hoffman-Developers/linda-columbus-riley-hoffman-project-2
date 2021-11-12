@@ -17,10 +17,12 @@ weatherApp.fiveDay = document.getElementById(`fiveDay`)
 weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
-weatherApp.resultsLoadHere = document.getElementsByClassName(`mobileShow`);
+weatherApp.resultsLoadHere = document.querySelector(`p.mobileShow`);
 
 // Function to call the event listener
 weatherApp.startEventListener = () => {
+    // Hide empty forecastOl on page load
+    weatherApp.forecastOl.style.display = 'none'
     weatherApp.form.addEventListener(`submit`, function (event) {
         // prevent page reload on form submissions
         event.preventDefault();
@@ -28,6 +30,7 @@ weatherApp.startEventListener = () => {
         weatherApp.p.textContent = ''
         weatherApp.displayIcon.textContent = ''
         weatherApp.forecastOl.textContent = ''
+        weatherApp.resultsLoadHere.style.display = 'none'
        
         // Save user's search string in a variable
         weatherApp.userSearch = weatherApp.searchInput.value;
@@ -45,8 +48,8 @@ weatherApp.startEventListener = () => {
         // If they have not selected Five Day Forecast
         } else {
             // Move resultsDiv to display one day
-            weatherApp.resultsDiv.style.left = '90%'
-            weatherApp.resultsDiv.style.top = '37%'
+            weatherApp.resultsDiv.style.left = '85%'
+            weatherApp.resultsDiv.style.top = '30%'
             // Hide Forcast ol
             weatherApp.forecastOl.style.display = 'none'
             // Pass user query to current day API
@@ -106,9 +109,6 @@ weatherApp.getDataFive = (queryFive) => {
 
 // Function to display weather data on the page
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
-    // Math.round to present only a whole number
-    weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
-
     // Targeting the weather condition for icon
     const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
     const weatherIcon = document.createElement(`img`)
@@ -132,7 +132,13 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     weatherIconFunction(`03d`, `Daytime scattered showers`);
     weatherIconFunction(`03n`, `Nighttime scattered showers`);
     weatherIconFunction(`04d`, `Overcast day`);
-    weatherIconFunction(`04n`, `Overcast night`);
+    weatherIconFunction(`04n`, `Overcast night`)
+    
+    // Function to delay textContent in order to give API time to load img
+    setTimeout(function() {
+    // Math.round to present only a whole number
+    weatherApp.p.textContent = `${Math.round(todaysDataFromApi.main.temp - 273.15)}° C`;
+    }, 300);
 
     // Publish results to the page
     weatherApp.resultsDiv.appendChild(weatherApp.p);
