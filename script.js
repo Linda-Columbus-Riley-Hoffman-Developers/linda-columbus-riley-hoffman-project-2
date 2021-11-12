@@ -75,8 +75,10 @@ weatherApp.getDataOne = (queryOne) => {
             } else {
                 alert(`Oops that doesn't look like a city name. Try again!`);
                 weatherApp.userSearch = ``;
-                // Show chevron
+                 // Show chevron if window is small enough
+                if (window.innerWidth <= 950) {
                 weatherApp.resultsChevron.style.display = 'block'
+                }
             }
         })
         .then((jsonResponse) => {
@@ -105,8 +107,10 @@ weatherApp.getDataFive = (queryFive) => {
             if (jsonResponse.errorCode) {
                 alert(`Oops that doesn't look like a city name. Try again!`);
                 weatherApp.userSearch = ``;
-                // Show chevron
-                weatherApp.resultsChevron.style.display = 'block'
+                // Show chevron if window is small enough
+                if (window.innerWidth <= 950) {
+                    weatherApp.resultsChevron.style.display = 'block'
+                }
                 // Hide Forcast ol
                 weatherApp.forecastOl.style.display = 'none'
             } else {
