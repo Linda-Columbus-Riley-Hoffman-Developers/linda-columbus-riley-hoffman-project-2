@@ -17,6 +17,7 @@ weatherApp.fiveDay = document.getElementById(`fiveDay`)
 weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
+weatherApp.resultsLoadHere = document.getElementsByClassName(`mobileShow`);
 weatherApp.modal = document.querySelector(`.modal`);
 
 // Function to call the event listener
@@ -33,19 +34,41 @@ weatherApp.startEventListener = () => {
         weatherApp.userSearch = weatherApp.searchInput.value;
         // If user has selected Five Day forecast
         if (weatherApp.fiveDay.checked) {
-            // Remove absolute positioning to display forecast in result box
-            weatherApp.resultsDiv.style.position = 'static'
+            // Move resultsDiv to display forecast
+            weatherApp.resultsDiv.style.left = '85%'
+            weatherApp.resultsDiv.style.top = '0'
+            // Show Forcast ol
+            weatherApp.forecastOl.style.display = 'grid'
             // Pass user query to forecast API
             weatherApp.getDataFive(weatherApp.userSearch);
             // Display dates
             weatherApp.date
         // If they have not selected Five Day Forecast
         } else {
-            // Add absolute positioning to display todays temperature in result box
-            weatherApp.resultsDiv.style.position = 'absolute'
+            // Move resultsDiv to display one day
+            weatherApp.resultsDiv.style.left = '90%'
+            weatherApp.resultsDiv.style.top = '37%'
+            // Hide Forcast ol
+            weatherApp.forecastOl.style.display = 'none'
             // Pass user query to current day API
             weatherApp.getDataOne(weatherApp.userSearch);
         }
+    })
+}
+
+// Modal display error handling
+weatherApp.modalErrorHandling = () => {
+    weatherApp.modal.style.display = `block`;
+    weatherApp.modal.innerHTML = `
+        <p>Oops that doesn't look like a city name. Try again!</p>
+        <button class="modalButton">Close</button>
+        `;
+
+    // Close modal window button
+    const modalButton = document.querySelector(`.modalButton`);
+    modalButton.addEventListener(`click`, function (modalEvent) {
+        weatherApp.modal.style.visibility = `hidden`;
+        // window.location.reload();
     })
 }
 
@@ -61,8 +84,7 @@ weatherApp.getDataOne = (queryOne) => {
             if (response.ok) {
                 return response.json();
             } else {
-                // alert(`Oops that doesn't look like a city name. Try again!`);
-                weatherApp.userSearch = ``;
+                weatherApp.searchInput = ``;
                 throw new Error(response.statusText)
             }
         })
@@ -70,17 +92,9 @@ weatherApp.getDataOne = (queryOne) => {
             weatherApp.displayTodaysData(jsonResponse);
         })
         .catch((error) => {
+            // Modal error display
             if (error.message === `Not Found`) {
-                weatherApp.modal.style.display = `block`;
-                weatherApp.modal.innerHTML = `
-                <p>Oops that doesn't look like a city name. Try again!</p>
-                <button class="modalButton">Close</button>
-                `;
-
-                const modalButton = document.querySelector(`.modalButton`);
-                modalButton.addEventListener(`click`, function (modalEvent) {
-                    weatherApp.modal.style.visibility = `hidden`;
-                })
+                weatherApp.modalErrorHandling();
             }
         })
 }
@@ -99,15 +113,14 @@ weatherApp.getDataFive = (queryFive) => {
     })
     fetch(urlFiveDay)
         .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert(`Oops that doesn't look like a city name. Try again!`);
-                weatherApp.userSearch = ``;
-            }
+            return response.json();
         })
         .then((jsonResponse) => {
-            weatherApp.displayForecastData(jsonResponse);
+            if (jsonResponse.errorCode) {
+                weatherApp.modalErrorHandling();
+            } else {
+                weatherApp.displayForecastData(jsonResponse)
+            }
         })
 }
 
