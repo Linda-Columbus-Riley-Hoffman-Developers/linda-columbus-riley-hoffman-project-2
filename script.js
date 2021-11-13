@@ -85,7 +85,12 @@ weatherApp.getDataOne = (queryOne) => {
                 return response.json();
             } else {
                 weatherApp.searchInput = ``;
-                throw new Error(response.statusText)
+                throw new Error(response.statusText);
+                // Show chevron
+                 // Show chevron if window is small enough
+                if (window.innerWidth <= 950) {
+                    weatherApp.resultsChevron.style.display = 'block'
+                }
             }
         })
         .then((jsonResponse) => {
@@ -118,6 +123,14 @@ weatherApp.getDataFive = (queryFive) => {
         .then((jsonResponse) => {
             if (jsonResponse.errorCode) {
                 weatherApp.modalErrorHandling();
+                // Show chevron
+                weatherApp.resultsChevron.style.display = 'block'
+                // Show chevron if window is small enough
+                if (window.innerWidth <= 950) {
+                    weatherApp.resultsChevron.style.display = 'block'
+                }
+                // Hide Forcast ol
+                weatherApp.forecastOl.style.display = 'none'
             } else {
                 weatherApp.displayForecastData(jsonResponse)
             }
@@ -286,17 +299,13 @@ weatherApp.init();
     // Display forecast dates, using loop
     // Create an empty array to store the returned weatherApp.date looped strings
     const forecastDates = []
-
     // Loop to obtain today + future 4 calendar dates for forecast
     for (let i = weatherApp.dayOfMonth; i <= weatherApp.dayOfMonth + 4; i++) {
         weatherApp.tomorrow.setDate(i);
-
         weatherApp.date = (weatherApp.tomorrow.getMonth() + 1) + '-' + weatherApp.tomorrow.getDate();
-
         // Convert the strings into array properties
         forecastDates.push(weatherApp.date)
         }
-
     // forEach to append calendar dates to previously created <li> in values.forEach()
     forecastDates.forEach((date) => {
         const dateP = document.createElement(`p`);

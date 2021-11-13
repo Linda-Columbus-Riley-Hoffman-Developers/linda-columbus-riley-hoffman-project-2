@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    background: #cfbfb7;
 }
 
 body, h1, h2, h3, h4, p, nav, ul, li, button {
@@ -40,6 +41,10 @@ header, section, form, footer {
     padding: 20px;
 }
 
+main {
+background-color: $backgroundColor;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -53,16 +58,21 @@ li {
     list-style: none;
 }
 
-main {
-    background-color: $backgroundColor;
-}
-
 form, .results, footer {
     display: flex;
 }
 
+input:focus,
+a:focus,
+textarea:focus,
+button:focus,
+.radioInput:focus + .customRadio {
+    outline: $focusOutline;
+}
+
 .app {
-    padding: 50px 0;
+    background-color: $backgroundColor;
+    padding: 80px 0 150px;
     .appWrapper {
         position: relative;
         form {
@@ -73,36 +83,69 @@ form, .results, footer {
             fieldset {
                 border: none;
                 padding: 10px;
+                width: 100%;
                 .flexBox {   
-                    justify-content: space-between;
-                    margin-bottom: 20px;
-                    input[type="radio"] {
-                        margin: 0;
-                        min-width: 40px;
-                        padding: 0;
-                        width: 40px;
+                    // justify-content: space-around;
+                    margin-bottom: 29px;
+                    .radioBox {
+                        display: block;
+                        position: relative;
+                        padding-left: 35px;
+                        margin-bottom: 12px;
+                        cursor: pointer;
+                        font-size: 22px;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        padding: 5px 0 0 47px;
+                        .radioBox.now {
+                            margin-right: 40px;
+                        }
+                        .radioInput {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                            height: 0;
+                            width: 0
+                        }
+                        .customRadio {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 35px;
+                            width: 35px;
+                            background-color: $inputBackgroundColor;
+                            border-radius: 50%;
+                        }
+                        /* On mouse-over, add a grey background color */
+                        span.customRadio:hover {
+                        background-color: $hoverColor;
+                        }
                     }
+                    /* When the checkbox is checked, add a blue background */
+                    .radioBox .radioInput:checked ~ .customRadio {
+                    background-color: $footerBackgroundColor;
+                    }   
                 }
                 .searchLabel {
+                display: block;
+                width: 100%;
                 margin-right: 20px;
+                padding-top: 50px;
                 }
             }
             legend {
-                margin: 50px 0; 
-                white-space: nowrap;
+                margin: 0px auto 20px; 
             }
             label {
-                margin: 20px 0 0;
+                margin: 20px 40px 0 0;
                 min-width: 90px;
-            }
-            input[type=radio] {
-                height: 25px;
-                width: 25px;
             }
             input.search {
                 margin: 20px 0;
                 min-width: 200px;
-                width: 50%;
+                width: 60%;
                 padding: 20px;
                 border: none;
                 background-color: $inputBackgroundColor;
@@ -112,8 +155,7 @@ form, .results, footer {
                 align-self: flex-end;
                 margin-bottom: 30px;
                 // min-width: 165px;
-                height: 79px;
-                padding: 20px 50px;
+                padding: 25px 50px;
                 position: relative;
                 right: 25%;
                 text-align: center;
@@ -121,8 +163,37 @@ form, .results, footer {
                 color: $footerTextColor;
                 border: none;
             }
+            button:focus {
+                padding: 21px 46px;
+                margin: 0 0 34px 2px
+            }
         }
     }
+}
+
+
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.customRadio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.radioBox .radioInput:checked ~ .customRadio:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.radioBox .customRadio:after {
+    top: 10px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
 }
 
 .results {
@@ -131,9 +202,9 @@ form, .results, footer {
         flex-wrap: nowrap;
         justify-content: center;
         margin-left: 20px;
-        padding-bottom: 60px;
-        left: 90%;
-        top: 37%;
+        padding: 75px 0 60px;
+        left: 85%;
+        top: 30%;
         white-space:nowrap;
     }
 
@@ -141,22 +212,32 @@ form, .results, footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 0;
-        column-gap: 40px;
-        row-gap: 110px;
+        column-gap: 50px;
+        row-gap: 78px;
         margin: 0;
+        width: 100%;
     }    
-    
 
 footer {
     background-color: $footerBackgroundColor;
     justify-content: space-between;
+    font-size: 1.6rem;
+    font-family: "Nunito Sans", sans-serif;
     .flexBox {
         align-items: center;
         justify-content: space-between;
-        i {
-            margin-left: 20px;
-        }
+        a {
+            margin: 0 20px 0;
+            padding: 1px;
+            i {
+                margin-left: 20px;
+            }
+        }   
     }
+}
+
+a.createdAtJuno {
+    margin-left: 25px;
 }
 
 .skip-link {position: absolute; left: -1000px; top: 5px;z-index: 999; background: white; color: black;}
@@ -172,12 +253,12 @@ footer {
     display: flex;
 }
 
-.skip-link {
+.skip-link /* styling */ {
     height: 79px;
     padding: 20px 50px;
     text-align: center;
-    background-color: #7b625e;
-    color: #f0eaea;
+    background-color: $footerBackgroundColor;
+    color: $footerTextColor;
     border: none;
 }
 
@@ -195,6 +276,21 @@ footer {
     }
 }
 
+.mobileShow {
+        display: none;
+        color: $bodyTextColor;
+        font-size: 3rem;
+        left: 50%;
+        top: 90%;
+        animation: headerArrow 4s infinite;  
+        padding-top: 30px; 
+        opacity: 0.85;     
+}
+
+
+
+
+
 // Media Queries
 
 /* Portrait tablet and small desktops */
@@ -204,10 +300,7 @@ footer {
             fieldset {
                 padding: 10px 10px 10px 0;
                 width: 100%;
-                width: 53vw; 
-                legend.legend {
-                    white-space: normal;
-                }  
+                width: 53vw;  
             }
             button {
                 right: initial;
@@ -217,45 +310,58 @@ footer {
     .results {
         left: 85%;
         top: 37%;
+        .forecastP {
+            font-size: 4rem;       
+        }
     }  
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
+    header {
+        height: 55vh;
+    }
     h1 {
         font-size: 8.5rem;
     }
-    .appWrapper {
-        flex-direction: column;
-        justify-content: flex-end;
-        form.form {
-            align-items: flex-start;
+    .app {
+        padding-bottom: 40px;
+        .appWrapper {
             flex-direction: column;
-            padding: 0;
-            fieldset.fieldset {
-                padding: 0; 
-                legend.legend {
-                    margin: 0px 0 29px;
-                }
-                .smallScreenGrid {
-                    display: grid;
-                    grid-template-columns: 0.5fr 1fr;
-                    label {
-                        margin: 20px 0;
-                        white-space: nowrap;
+            justify-content: flex-end;
+            form.form {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 0;
+                fieldset.fieldset {
+                    padding: 0; 
+                    .flexBox {
+                        justify-content: space-between;
+                    }
+                        
+                    legend.legend {
+                        margin: 0px 0 29px;
+                    }
+                    .smallScreenGrid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        label {
+                            margin: 20px 0;
+                            line-height: 1.2;
+                        }
+                    }
+                    input[type="search"].search {
+                        width: 100%;
                     }
                 }
-                input[type="search"] {
-                    width: 68vw;
+                button.smallScreenButton {
+                    align-self: initial;
+                    position: static;
+                    width: 100%;
                 }
             }
-            button.smallScreenButton {
-                align-self: initial;
-                position: static;
-                width: 100%;
-            }
-        }
-    } 
+        } 
+    }
     .results {
         position: static;
         left: 75%;
@@ -270,12 +376,28 @@ footer {
         row-gap: 110px;
         margin: 85px 0 0;
     }
+    .mobileShow {
+        display: block;
+    }
+    footer {
+        text-align: center;
+        line-height: 2.1;
+        .flexBox {
+            flex-direction: column;
+                span:last-child {
+                    display: none;
+                }
+        }
+    }
 }
 
 /* Landscape phones and down */
 @media (max-width: 600px) {
     header {
-        height: 50vh
+        height: 28vh;
+        a > .fa-chevron-down {
+        display: none;
+    }
     }
     h1 {
         font-size: 7rem;
@@ -286,22 +408,41 @@ footer {
     .wrapper {
         width: 90%;
     }
-   .appWrapper {
-       form.form {
-           width: 100%;
-        fieldset.fieldset {
-               width: 100%;
-               input[type="search"] {
-                   width: 100%;
-               }
+    .app {
+        padding: 40px 0 50px;
+        .appWrapper {
+            form.form {
+                width: 100%;
+                fieldset.fieldset {
+                    width: 100%;
+                    input[type="search"] {
+                        width: 100%;
+                    }
+                }
+                .smallScreenButton {
+                        margin-bottom: 20px;
+                    }
+            }
         }
-       }
    }
     
     .results {
-        // !important overide style.position = 'absolute' for small screens
-        position: static !important; 
+        padding-top: 0;
+        position: static; 
     } 
-  
+    footer {
+        text-align: left;
+        a.createdAtJuno {
+            margin: 0;
+        }
+        .flexBox {
+            span {
+                        display: none;
+            }
+        }
+        a:last-child {
+            align-self: flex-start;
+        }
+    }
 }
 
