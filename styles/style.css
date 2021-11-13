@@ -751,26 +751,26 @@ a.createdAtJuno {
             flex-direction: column;
     padding: 0;
   }
-  form fieldset {
+  form fieldset:first-child {
     padding: 0;
   }
-  form fieldset .flexBox {
+  form fieldset:first-child .flexBox {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  form fieldset legend {
+  form fieldset:first-child legend {
     margin: 0px 0 29px;
   }
-  form fieldset .smallScreenGrid {
+  form fieldset:first-child .smallScreenGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  form fieldset .smallScreenGrid label {
+  form fieldset:first-child .smallScreenGrid label {
     margin: 20px 0;
     line-height: 1.2;
   }
-  form fieldset input[type=search] {
+  form fieldset:first-child input[type=search] {
     width: 100%;
   }
   form button.smallScreenButton {

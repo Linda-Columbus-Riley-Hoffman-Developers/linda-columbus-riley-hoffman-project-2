@@ -353,7 +353,7 @@ a.createdAtJuno {
         align-items: flex-start;
         flex-direction: column;
         padding: 0;
-        fieldset {
+        fieldset:first-child {
             padding: 0; 
             .flexBox {
                 justify-content: space-between;
@@ -405,12 +405,11 @@ a.createdAtJuno {
         line-height: 2.1;
         .flexBox {
             flex-direction: column;
-                span:last-child {
-                    display: none;
-                }
+            span:last-child {
+                display: none;
+            }
         }
     }
-
     .modal {
         left: 10%;
     }
@@ -473,7 +472,6 @@ a.createdAtJuno {
             align-self: flex-start;
         }
     }
-
     .modal {
         width: 350px;
         height: 200px;
