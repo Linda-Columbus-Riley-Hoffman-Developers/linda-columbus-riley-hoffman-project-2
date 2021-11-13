@@ -312,14 +312,6 @@ input,
   margin-right: 20px;
 }
 
-.fa-cloud {
-  color: #6980cc;
-}
-
-.fa-sun {
-  color: #e6bb00;
-}
-
 button {
   text-transform: uppercase;
 }
@@ -490,7 +482,7 @@ button:focus,
   left: 0;
   height: 35px;
   width: 35px;
-  background-color: #cfbfb7;
+  background-color: #7b625e4a;
   border-radius: 50%;
 }
 .app .appWrapper form fieldset .flexBox .radioBox span.customRadio:hover {
@@ -658,6 +650,7 @@ a.createdAtJuno {
   -webkit-animation: headerArrow 4s infinite;
           animation: headerArrow 4s infinite;
   padding-top: 30px;
+  opacity: 0.85;
 }
 
 /* Portrait tablet and small desktops */
@@ -761,6 +754,20 @@ a.createdAtJuno {
   .mobileShow {
     display: block;
   }
+
+  footer {
+    text-align: center;
+    line-height: 2.1;
+  }
+  footer .flexBox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .flexBox span:last-child {
+    display: none;
+  }
 }
 /* Landscape phones and down */
 @media (max-width: 600px) {
@@ -802,5 +809,19 @@ a.createdAtJuno {
   .results {
     padding-top: 0;
     position: static;
+  }
+
+  footer {
+    text-align: left;
+  }
+  footer a.createdAtJuno {
+    margin: 0;
+  }
+  footer .flexBox span {
+    display: none;
+  }
+  footer a:last-child {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
 }

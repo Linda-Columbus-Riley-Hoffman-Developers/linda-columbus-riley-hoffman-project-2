@@ -1,5 +1,5 @@
 body {
-    color: #332c2a;
+    color: $bodyTextColor;
 }
 
 h1 {
@@ -53,14 +53,6 @@ input,
 .results i {
     font-size: 5.5rem;
     margin-right: 20px;
-}
-
-.fa-cloud {
-    color: rgb(105, 128, 204);
-}
-
-.fa-sun {
-    color: rgb(230, 187, 0);
 }
 
 button {

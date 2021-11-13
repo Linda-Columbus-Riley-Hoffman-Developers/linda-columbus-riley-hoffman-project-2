@@ -67,7 +67,7 @@ a:focus,
 textarea:focus,
 button:focus,
 .radioInput:focus + .customRadio {
-    outline: 4px solid $focusColor;
+    outline: $focusOutline;
 }
 
 .app {
@@ -112,12 +112,12 @@ button:focus,
                             left: 0;
                             height: 35px;
                             width: 35px;
-                            background-color: #cfbfb7;
+                            background-color: $inputBackgroundColor;
                             border-radius: 50%;
                         }
                         /* On mouse-over, add a grey background color */
                         span.customRadio:hover {
-                        background-color: #5c5a7f;
+                        background-color: $hoverColor;
                         }
                     }
                     /* When the checkbox is checked, add a blue background */
@@ -265,7 +265,8 @@ a.createdAtJuno {
         left: 50%;
         top: 90%;
         animation: headerArrow 4s infinite;  
-        padding-top: 30px;      
+        padding-top: 30px; 
+        opacity: 0.85;     
 }
 
 
@@ -360,6 +361,16 @@ a.createdAtJuno {
     .mobileShow {
         display: block;
     }
+    footer {
+        text-align: center;
+        line-height: 2.1;
+        .flexBox {
+            flex-direction: column;
+                span:last-child {
+                    display: none;
+                }
+        }
+    }
 }
 
 /* Landscape phones and down */
@@ -401,5 +412,19 @@ a.createdAtJuno {
         padding-top: 0;
         position: static; 
     } 
+    footer {
+        text-align: left;
+        a.createdAtJuno {
+            margin: 0;
+        }
+        .flexBox {
+            span {
+                        display: none;
+            }
+        }
+        a:last-child {
+            align-self: flex-start;
+        }
+    }
 }
 
