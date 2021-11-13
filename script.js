@@ -107,7 +107,7 @@ weatherApp.getDataOne = (queryOne) => {
                 
            
 
-
+// Function to calling Visual Crossing API for five days of weather data
 weatherApp.getDataFive = (queryFive) => {
     const urlFiveDay = new URL(weatherApp.apiUrlFiveDay);
 
@@ -171,7 +171,7 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     cleanUrl()
 }
 
-// Function to display weather data on the page
+// Function to call Open Weather API for one day of weather data
 weatherApp.displayForecastData = (forecastDataFromApi) => {
     const values = forecastDataFromApi.locations[weatherApp.userSearch].values;
     values.forEach((day) => {
