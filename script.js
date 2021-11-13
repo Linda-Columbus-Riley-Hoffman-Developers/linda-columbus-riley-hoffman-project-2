@@ -88,11 +88,7 @@ weatherApp.getDataOne = (queryOne) => {
         .then((response) => {
             if (response.ok) {
                 return response.json();
-            } else {
-                // Show chevron if window is small enough
-                if (window.innerWidth <= 950) {
-                    weatherApp.resultsChevron.style.display = 'block'
-                }
+            } else { 
                 throw new Error(response.statusText)
             }
         })
@@ -101,7 +97,8 @@ weatherApp.getDataOne = (queryOne) => {
         })
         .catch((error) => {
             // Modal error display
-            if (error.message === `Not Found`) {
+            
+            if (error.message === `Not Found` || `Bad Request`) {
                 weatherApp.modalErrorHandling();
             }
         })
@@ -130,14 +127,6 @@ weatherApp.getDataFive = (queryFive) => {
         .then((jsonResponse) => {
             if (jsonResponse.errorCode) {
                 weatherApp.modalErrorHandling();
-                // Show chevron
-                weatherApp.resultsChevron.style.display = 'block'
-                // Show chevron if window is small enough
-                if (window.innerWidth <= 950) {
-                    weatherApp.resultsChevron.style.display = 'block'
-                }
-                // Hide Forcast ol
-                weatherApp.forecastOl.style.display = 'none'
             } else {
                 weatherApp.displayForecastData(jsonResponse)
             }
@@ -153,7 +142,6 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Connecting corresponding weather icon to weather condition
     const weatherIconFunction = (iconID, imgAlt) => {
         if (weatherConditionIcon === iconID) {
-            console.log(iconID)
             weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`
         }
     }
