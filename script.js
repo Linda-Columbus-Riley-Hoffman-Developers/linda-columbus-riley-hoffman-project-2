@@ -10,12 +10,12 @@ weatherApp.apiUrlFiveDay = `https://weather.visualcrossing.com/VisualCrossingWeb
 
 // Variables to capture page elements
 weatherApp.form = document.querySelector(`form`)
+weatherApp.searchInput = document.getElementById(`search`);
 weatherApp.resultsDiv = document.querySelector(`.results`);
 weatherApp.displayIcon = document.querySelector(`.displayIcon`);
-weatherApp.searchInput = document.getElementById(`search`);
-weatherApp.fiveDay = document.getElementById(`fiveDay`)
-weatherApp.now = document.getElementById(`now`);
 weatherApp.displayDescription = document.getElementsByClassName(`displayDescription`);
+weatherApp.now = document.getElementById(`now`);
+weatherApp.fiveDay = document.getElementById(`fiveDay`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 weatherApp.resultsChevron = document.querySelector(`a.mobileShow`);
@@ -42,13 +42,11 @@ weatherApp.startEventListener = () => {
             weatherApp.resultsDiv.style.left = '85%'
             weatherApp.resultsDiv.style.top = '0'
             weatherApp.resultsDiv.style.padding = '0'
-            // Show Forcast ol
+            // Show Forecast ol
             weatherApp.forecastOl.style.display = 'grid'
             // Pass user query to forecast API
             weatherApp.getDataFive(weatherApp.userSearch);
-            // Display dates
-            weatherApp.date
-        // If they have not selected Five Day Forecast
+        // If they selected current data
         } else {
             // Move resultsDiv to display one day
             weatherApp.resultsDiv.style.padding = '75px 0 60px';
@@ -96,16 +94,12 @@ weatherApp.getDataOne = (queryOne) => {
         })
         .catch((error) => {
             // Modal error display
-            
             if (error.message === `Not Found` || `Bad Request`) {
                 weatherApp.modalErrorHandling();
             }
         })
 }
         
-                
-           
-
 // Function to calling Visual Crossing API for five days of weather data
 weatherApp.getDataFive = (queryFive) => {
     const urlFiveDay = new URL(weatherApp.apiUrlFiveDay);
@@ -134,10 +128,8 @@ weatherApp.getDataFive = (queryFive) => {
 
 // Function to display weather data on the page
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
-    console.log(todaysDataFromApi)
     // Targeting the weather condition for icon
     const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
-    const weatherIcon = document.createElement(`img`)
 
     // Connecting corresponding weather icon to weather condition
     const weatherIconFunction = (iconID, imgAlt) => {
@@ -158,8 +150,8 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     weatherIconFunction(`01n`, `Clear night`);
     weatherIconFunction(`02d`, `Cloudy day`);
     weatherIconFunction(`02n`, `Cloudy night`);
-    weatherIconFunction(`03d`, `Daytime scattered showers`);
-    weatherIconFunction(`03n`, `Nighttime scattered showers`);
+    weatherIconFunction(`03d`, `Daytime showers`);
+    weatherIconFunction(`03n`, `Nighttime showers`);
     weatherIconFunction(`04d`, `Overcast day`);
     weatherIconFunction(`04n`, `Overcast night`)
 
@@ -219,7 +211,7 @@ weatherApp.displayForecastData = (forecastDataFromApi) => {
 
 // Remove #main from url if links to #main (skip to, header arrow) are clicked
 function cleanUrl () {
-history.pushState("", document.title, window.location.pathname + window.location.search);
+    history.pushState("", document.title, window.location.pathname + window.location.search);
 }
 
 weatherApp.init = () => {

@@ -24,25 +24,20 @@
         <h2>your fast forecast</h2>
         <a href="#main" aria-hidden="true" tabindex="-1"><i class="fas fa-chevron-down"></i></a>
     </header>
+
     <main id="main">
-        <!-- <section class="instructions">
-            <div class="wrapper flexBox">
-                <p>Find out the temperature anywhere in the world!</p>
-            </div>
-        </section> -->
         <section class="app">
             <div class="wrapper flexBox appWrapper">
                 <form action="_blank" class="form">
-                    <fieldset class="fieldset">
-                        <legend class="legend">Find out the weather anywhere in the world!</legend>
+                    <fieldset>
+                        <legend>Find out the weather anywhere in the world!</legend>
                         <div class="flexBox smallScreenGrid">
                             <label for="now" class="radioBox now">
                                 <input type="radio" id="now" name="when" class="radioInput">
                                 <span class="customRadio"></span>
                             Right Now</label>
                             <label for="fiveDay" class="radioBox">
-                                <input type="radio" id="fiveDay" 
-                            name="when" class="radioInput">
+                                <input type="radio" id="fiveDay" name="when" class="radioInput">
                             <span class="customRadio"></span>
                             Five Day Forecast</label>
                         </div>
@@ -52,6 +47,7 @@
                     <button class="smallScreenButton">Search</button>
                     <div class="modal"></div>
                 </form>
+
                 <div class="results flexBox" id="results">
                     <a href="#results" class="mobileShow" aria-hidden="true"><i class="fas fa-chevron-down" tabindex="-1"></i></a>
                     <div class="displayIcon"></div>
@@ -60,6 +56,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <p><a href="https://junocollege.com/" class="createdAtJuno">Created at Juno College of Technology</a></p>
         <div class="flexBox">
@@ -68,7 +65,8 @@
             <a href="https://github.com/Linda-Columbus-Riley-Hoffman-Developers">Developers <i class="fab fa-github"></i></a>
         </div>
     </footer>
-    <script src="./script.js"></script>
-</body>
 
+    <script src="./script.js"></script>
+
+</body>
 </html>

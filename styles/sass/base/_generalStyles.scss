@@ -42,7 +42,7 @@ header, section, form, footer {
 }
 
 main {
-background-color: $backgroundColor;
+    background-color: $backgroundColor;
 }
 
 img {
@@ -123,7 +123,7 @@ fieldset {
             padding-left: 35px;
             margin-bottom: 12px;
             cursor: pointer;
-            font-size: 22px;
+            font-size: 2.2rem;
             user-select: none;
             padding: 5px 0 0 47px;
             .radioBox.now {
@@ -203,35 +203,33 @@ button:focus {
 }
 
 .results {
-        position: absolute;
-        align-items: flex-end;
-        flex-wrap: nowrap;
-        justify-content: center;
-        padding: 75px 0 60px;
-        left: 85%;
-        top: 0;
-        white-space:nowrap;
-    }
+    position: absolute;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 75px 0 60px;
+    left: 85%;
+    top: 0;
+    white-space: nowrap;
+}
 
 .results p:last-child {
     padding-bottom: 25px;
 }
 
 .forecast {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 0;
-        column-gap: 50px;
-        row-gap: 78px;
-        margin: 0;
-        width: 100%;
-    }    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    column-gap: 50px;
+    row-gap: 78px;
+    margin: 0;
+    width: 100%;
+}    
 
 footer {
     background-color: $footerBackgroundColor;
     justify-content: space-between;
-    font-size: 1.6rem;
-    font-family: "Nunito Sans", sans-serif;
     a:hover {
         text-decoration: underline;
     }
@@ -252,9 +250,6 @@ a.createdAtJuno {
     margin-left: 25px;
 }
 
-.skip-link {position: absolute; left: -1000px; top: 5px;z-index: 999; background: white; color: black;}
-.skip-link:focus {left: 0;}
-
 .wrapper {
     width: 70%;
     max-width: 1100px;
@@ -265,24 +260,15 @@ a.createdAtJuno {
     display: flex;
 }
 
-.skip-link /* styling */ {
-    height: 79px;
-    padding: 20px 50px;
-    text-align: center;
-    background-color: $footerBackgroundColor;
-    color: $footerTextColor;
-    border: none;
-}
-
 .mobileShow {
-        display: none;
-        color: $bodyTextColor;
-        font-size: 3rem;
-        left: 50%;
-        top: 90%;
-        animation: headerArrow 4s infinite;  
-        padding-top: 30px; 
-        opacity: 0.85;     
+    display: none;
+    color: $bodyTextColor;
+    font-size: 3rem;
+    left: 50%;
+    top: 90%;
+    animation: headerArrow 4s infinite;  
+    padding-top: 30px; 
+    opacity: 0.85;     
 }
 
 .modal {
@@ -301,7 +287,24 @@ a.createdAtJuno {
     }
 }
 
+.skip-link {
+    position: absolute; 
+    left: -1000px; 
+    top: 5px;
+    z-index: 999; 
+    background: white; 
+    color: black;
+    height: 79px;
+    padding: 20px 50px;
+    text-align: center;
+    background-color: $footerBackgroundColor;
+    color: $footerTextColor;
+    border: none;
+}
 
+.skip-link:focus {
+    left: 0;
+}
 
 // Media Queries
 
@@ -330,56 +333,61 @@ a.createdAtJuno {
     header {
         height: 75vh;
     }
+
     h1 {
         font-size: 8.5rem;
     }
+
     h2 {
         font-size: 3.5rem; 
     }
+
     .app {
         padding-bottom: 40px;
         .appWrapper {
             flex-direction: column;
             justify-content: flex-end;
-            form.form {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 0;
-                fieldset.fieldset {
-                    padding: 0; 
-                    .flexBox {
-                        justify-content: space-between;
-                    }
-                        
-                    legend.legend {
-                        margin: 0px 0 29px;
-                    }
-                    .smallScreenGrid {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        label {
-                            margin: 20px 0;
-                            line-height: 1.2;
-                        }
-                    }
-                    input[type="search"].search {
-                        width: 100%;
-                    }
-                }
-                button.smallScreenButton {
-                    align-self: initial;
-                    position: static;
-                    width: 100%;
+        }
+    }
+
+    form {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0;
+        fieldset {
+            padding: 0; 
+            .flexBox {
+                justify-content: space-between;
+            }
+            legend {
+                margin: 0px 0 29px;
+            }
+            .smallScreenGrid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                label {
+                    margin: 20px 0;
+                    line-height: 1.2;
                 }
             }
-        } 
+            input[type="search"] {
+                width: 100%;
+            }
+        }
+        button.smallScreenButton {
+            align-self: initial;
+            position: static;
+            width: 100%;
+        }
     }
+    
     .results {
         position: static;
         left: 75%;
         top: initial;
         bottom: 90%;
     } 
+
     .forecast {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -388,9 +396,11 @@ a.createdAtJuno {
         row-gap: 110px;
         margin: 85px 0 0;
     }
+
     .mobileShow {
         display: block;
     }
+
     footer {
         text-align: center;
         line-height: 2.1;
@@ -415,34 +425,34 @@ a.createdAtJuno {
         display: none;
         }
     }
+
     h1 {
         font-size: 7rem;
     } 
+
     .wrapper {
         width: 90%;
     }
+
     .app {
         padding: 40px 0 50px;
-        .appWrapper {
-            form.form {
-                width: 100%;
-                fieldset.fieldset {
-                    width: 100%;
-                    input[type="search"] {
-                        width: 100%;
-                    }
-                }
-                .smallScreenButton {
-                        margin-bottom: 20px;
-                    }
-            }
-        }
-   }
+    }
+            
+    form,
+    fieldset,
+    input[type="search"] {
+        width: 100%;
+    }
     
+    .smallScreenButton {
+        margin-bottom: 20px;
+    }
+        
     .results {
         padding-top: 0;
         position: static; 
     } 
+
     footer {
         text-align: left;
         a.createdAtJuno {
