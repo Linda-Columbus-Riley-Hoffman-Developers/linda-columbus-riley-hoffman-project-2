@@ -73,7 +73,7 @@ weatherApp.modalErrorHandling = () => {
     const modalButton = document.querySelector(`.modalButton`);
     modalButton.addEventListener(`click`, function (modalEvent) {
         weatherApp.modal.style.visibility = `hidden`;
-        // window.location.reload();
+        window.location.reload();
     })
 }
 
@@ -88,13 +88,7 @@ weatherApp.getDataOne = (queryOne) => {
         .then((response) => {
             if (response.ok) {
                 return response.json();
-            } else {
-                weatherApp.searchInput = ``;
-                weatherApp.userSearch = ``;
-                // Show chevron if window is small enough
-                if (window.innerWidth <= 950) {
-                    weatherApp.resultsChevron.style.display = 'block'
-                }
+            } else { 
                 throw new Error(response.statusText)
             }
         })
@@ -103,7 +97,8 @@ weatherApp.getDataOne = (queryOne) => {
         })
         .catch((error) => {
             // Modal error display
-            if (error.message === `Not Found`) {
+            
+            if (error.message === `Not Found` || `Bad Request`) {
                 weatherApp.modalErrorHandling();
             }
         })
@@ -132,14 +127,6 @@ weatherApp.getDataFive = (queryFive) => {
         .then((jsonResponse) => {
             if (jsonResponse.errorCode) {
                 weatherApp.modalErrorHandling();
-                // Show chevron
-                weatherApp.resultsChevron.style.display = 'block'
-                // Show chevron if window is small enough
-                if (window.innerWidth <= 950) {
-                    weatherApp.resultsChevron.style.display = 'block'
-                }
-                // Hide Forcast ol
-                weatherApp.forecastOl.style.display = 'none'
             } else {
                 weatherApp.displayForecastData(jsonResponse)
             }
@@ -155,7 +142,6 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Connecting corresponding weather icon to weather condition
     const weatherIconFunction = (iconID, imgAlt) => {
         if (weatherConditionIcon === iconID) {
-            console.log(iconID)
             weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`
         }
     }
@@ -240,98 +226,3 @@ weatherApp.init = () => {
 
 // Kickoff the app 🏈
 weatherApp.init();
-
-
-
-
-// var scrollV, scrollH, loc = window.location;
-// if ("pushState" in history)
-//     history.pushState("", document.title, loc.pathname + loc.search);
-// else {
-//     // Prevent scrolling by storing the page's current scroll offset
-//     scrollV = document.body.scrollTop;
-//     scrollH = document.body.scrollLeft;
-
-//     loc.hash = "";
-
-//     // Restore the scroll offset, should be flicker free
-//     document.body.scrollTop = scrollV;
-//     document.body.scrollLeft = scrollH;
-
-/* PSEUDO CODE
-// App functionality thinking:
-// Create a form with a search input to receive a city name
-// Store the user's input as a variable
-// Use the user's input to fetch from the API the corresponding temperature of that city
-// Display the temperature on the page
-// JS Thinking:
-// Create an app object (weatherApp)
-// Initialize preset data in the dedicated properties
-// - apiURL
-// - apiKey
-// - userInputCity
-// Create a method (getUserInputCity) to update the variable (userInputCity) based on user input
-// Create a method (getCities) to make an API call, which takes the user input as a parameter (userInputCity)
-// Identify/create a variable for an empty div where the results will be stored
-// When the API call is successful, display the result by appending the data to the results div
-// If the user text input doesn't exactly match a city property (eg. typo), there will be a prompt to ask them to try again
-// Create an init method to kick off the setup of the application
-*/
-
-
-
-
-//     } else if (weatherApp.now.checked) {
-//         url.search = new URLSearchParams({
-//             q: `${query}`,
-//             appid: weatherApp.apiKey
-//         })
-//     }
-//         fetch(url)
-//             .then((response) => {
-//                 if (response.ok) {
-//                     return response.json();
-//                 } else {
-//                     alert(`Oops that doesn't look like a city name. Try again!`);
-//                     weatherApp.userSearch = ``;
-//                 }
-//             })
-//             .then((jsonResponse) => {
-//                 console.log(jsonResponse);
-//                 weatherApp.displayWeatherData(jsonResponse);
-//             })
-// }
-
-// Variable to hold today's date
-// weatherApp.today = new Date();
-// weatherApp.tomorrow = new Date();
-// weatherApp.dayOfMonth = weatherApp.today.getDate()
-// console.log(weatherApp.dayOfMonth)
-
-    /*
-    // Display forecast dates, using loop
-    // Create an empty array to store the returned weatherApp.date looped strings
-    const forecastDates = []
-
-    // Loop to obtain today + future 4 calendar dates for forecast
-    for (let i = weatherApp.dayOfMonth; i <= weatherApp.dayOfMonth + 4; i++) {
-        weatherApp.tomorrow.setDate(i);
-
-        weatherApp.date = (weatherApp.tomorrow.getMonth() + 1) + '-' + weatherApp.tomorrow.getDate();
-
-        // Convert the strings into array properties
-        forecastDates.push(weatherApp.date)
-        }
-
-    // forEach to append calendar dates to previously created <li> in values.forEach()
-    forecastDates.forEach((date) => {
-        const dateP = document.createElement(`p`);
-        // console.log(dateP, `this is dateP`)
-        dateP.innerText = date;
-        // console.log(date, `this is date`)
-        // const forecastLI = document.querySelector(`li:last-child`);
-        // forecastLI.appendChild(dateP)
-    })
-    
-        console.log(forecastDates)
-        */
