@@ -331,6 +331,14 @@ footer i {
   font-size: 2rem;
 }
 
+.modal p {
+  font-size: 2rem;
+  color: #f0eaea;
+}
+.modal button {
+  color: #c4bfbf;
+}
+
 html {
   font-size: 62.5%;
   background: #cfbfb7;
@@ -432,7 +440,8 @@ button:focus,
 .app .appWrapper {
   position: relative;
 }
-.app .appWrapper form {
+
+form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -444,16 +453,32 @@ button:focus,
           justify-content: space-between;
   padding: 20px 0px 20px 20px;
 }
-.app .appWrapper form fieldset {
+form legend {
+  margin: 0px auto 20px;
+}
+form label {
+  margin: 20px 40px 0 0;
+  min-width: 90px;
+}
+form input.search {
+  margin: 20px 0;
+  min-width: 200px;
+  width: 60%;
+  padding: 20px;
+  border: none;
+  background-color: #7b625e4a;
+}
+
+fieldset {
   border: none;
   padding: 10px;
   width: 100%;
 }
-.app .appWrapper form fieldset .flexBox {
+fieldset .flexBox {
   margin-bottom: 29px;
   /* When the checkbox is checked, add a blue background */
 }
-.app .appWrapper form fieldset .flexBox .radioBox {
+fieldset .flexBox .radioBox {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -461,23 +486,23 @@ button:focus,
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   padding: 5px 0 0 47px;
   /* On mouse-over, add a grey background color */
 }
-.app .appWrapper form fieldset .flexBox .radioBox .radioBox.now {
+fieldset .flexBox .radioBox .radioBox.now {
   margin-right: 40px;
 }
-.app .appWrapper form fieldset .flexBox .radioBox .radioInput {
+fieldset .flexBox .radioBox .radioInput {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
 }
-.app .appWrapper form fieldset .flexBox .radioBox .customRadio {
+fieldset .flexBox .radioBox .customRadio {
   position: absolute;
   top: 0;
   left: 0;
@@ -486,34 +511,20 @@ button:focus,
   background-color: #7b625e4a;
   border-radius: 50%;
 }
-.app .appWrapper form fieldset .flexBox .radioBox span.customRadio:hover {
+fieldset .flexBox .radioBox span.customRadio:hover {
   background-color: #5c5a7f;
 }
-.app .appWrapper form fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
+fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
   background-color: #7b625e;
 }
-.app .appWrapper form fieldset .searchLabel {
+fieldset .searchLabel {
   display: block;
   width: 100%;
   margin-right: 20px;
   padding-top: 50px;
 }
-.app .appWrapper form legend {
-  margin: 0px auto 20px;
-}
-.app .appWrapper form label {
-  margin: 20px 40px 0 0;
-  min-width: 90px;
-}
-.app .appWrapper form input.search {
-  margin: 20px 0;
-  min-width: 200px;
-  width: 60%;
-  padding: 20px;
-  border: none;
-  background-color: #7b625e4a;
-}
-.app .appWrapper form button {
+
+button {
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-bottom: 30px;
@@ -525,7 +536,8 @@ button:focus,
   color: #f0eaea;
   border: none;
 }
-.app .appWrapper form button:focus {
+
+button:focus {
   padding: 21px 46px;
   margin: 0 0 34px 2px;
 }
@@ -664,9 +676,11 @@ a.createdAtJuno {
   width: 500px;
   padding: 100px;
   background-color: #7b625e;
+  border: 3px solid #2b1a16;
 }
-.modal p {
-  font-size: 2rem;
+.modal .modalButton {
+  color: #c8c3c3;
+  padding-left: 75px;
 }
 
 /* Portrait tablet and small desktops */
@@ -687,15 +701,23 @@ a.createdAtJuno {
   .results .forecastP {
     font-size: 4rem;
   }
+
+  .modal .modalButton {
+    padding-left: 0;
+  }
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 950px) {
   header {
-    height: 55vh;
+    height: 75vh;
   }
 
   h1 {
     font-size: 8.5rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
   }
 
   .app {
@@ -784,11 +806,15 @@ a.createdAtJuno {
   footer .flexBox span:last-child {
     display: none;
   }
+
+  .modal {
+    left: 10%;
+  }
 }
 /* Landscape phones and down */
-@media (max-width: 600px) {
+@media (max-width: 675px) {
   header {
-    height: 28vh;
+    height: 60vh;
   }
   header a > .fa-chevron-down {
     display: none;
@@ -796,10 +822,6 @@ a.createdAtJuno {
 
   h1 {
     font-size: 7rem;
-  }
-
-  h2 {
-    font-size: 4.5rem;
   }
 
   .wrapper {
@@ -836,8 +858,22 @@ a.createdAtJuno {
   footer .flexBox span {
     display: none;
   }
+  footer .flexBox a,
+footer .flexBox i {
+    display: block;
+  }
+  footer .flexBox a i,
+footer .flexBox i i {
+    margin-left: 0;
+  }
   footer a:last-child {
     -ms-flex-item-align: start;
         align-self: flex-start;
+  }
+
+  .modal {
+    width: 350px;
+    height: 200px;
+    padding: 50px;
   }
 }
