@@ -314,14 +314,6 @@ a.createdAtJuno {
     }  
 }
 
-@media (min-width: 1000px) {
-    .app {
-        .mobileShow {
-            display: none;
-        } 
-    }
-}
-
 /* Landscape phone to portrait tablet */
 @media (max-width: 950px) {
     header {

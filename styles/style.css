@@ -14,7 +14,7 @@ article, aside, footer, header, nav, section {
 
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 
 figcaption, figure, main {
@@ -33,7 +33,7 @@ hr {
 }
 
 pre {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -83,11 +83,11 @@ sub, sup {
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 audio, video {
@@ -136,7 +136,7 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
 }
 
 fieldset {
-  padding: .35em .75em .625em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 legend {
@@ -206,7 +206,7 @@ template {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: '';
+  content: "";
   clear: both;
   height: 0;
 }
@@ -240,7 +240,7 @@ body {
 }
 
 h1 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 14rem;
   font-weight: 700;
   color: #2b1a16;
@@ -256,42 +256,29 @@ h2 {
 
 h2,
 button {
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
 }
 
 p {
   font-size: 1.6rem;
 }
 
-h3,
-label,
-input,
-input::-webkit-input-placeholder,
-button,
-legend,
-.skip-link {
+input::-webkit-input-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-h3,
-label,
-input,
-input:-ms-input-placeholder,
-button,
-legend,
-.skip-link {
+input::-moz-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-h3,
-label,
-input,
-input::-ms-input-placeholder,
-button,
-legend,
-.skip-link {
+input:-ms-input-placeholder {
+  font-size: 2.8rem;
+  text-decoration: none;
+}
+
+input::-ms-input-placeholder {
   font-size: 2.8rem;
   text-decoration: none;
 }
@@ -312,7 +299,7 @@ legend,
 label,
 input,
 .skip-link {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   color: #332c2a;
 }
 
@@ -334,15 +321,12 @@ footer i,
 footer a {
   color: #f0eaea;
 }
-
 footer p {
   font-size: 1.6rem;
 }
-
 footer a {
   text-decoration: none;
 }
-
 footer i {
   font-size: 2rem;
 }
@@ -375,7 +359,6 @@ header {
   text-align: center;
   position: relative;
 }
-
 header i {
   color: #ffecec;
   font-size: 3rem;
@@ -407,7 +390,6 @@ header i {
             transform: translateY(-30px);
   }
 }
-
 header, section, form, footer {
   padding: 20px;
 }
@@ -447,11 +429,9 @@ button:focus,
   background-color: #f0e5dc;
   padding: 80px 0 150px;
 }
-
 .app .appWrapper {
   position: relative;
 }
-
 .app .appWrapper form {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -464,18 +444,15 @@ button:focus,
           justify-content: space-between;
   padding: 20px 0px 20px 20px;
 }
-
 .app .appWrapper form fieldset {
   border: none;
   padding: 10px;
   width: 100%;
 }
-
 .app .appWrapper form fieldset .flexBox {
   margin-bottom: 29px;
   /* When the checkbox is checked, add a blue background */
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox {
   display: block;
   position: relative;
@@ -490,11 +467,9 @@ button:focus,
   padding: 5px 0 0 47px;
   /* On mouse-over, add a grey background color */
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .radioBox.now {
   margin-right: 40px;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .radioInput {
   position: absolute;
   opacity: 0;
@@ -502,7 +477,6 @@ button:focus,
   height: 0;
   width: 0;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .customRadio {
   position: absolute;
   top: 0;
@@ -512,31 +486,25 @@ button:focus,
   background-color: #7b625e4a;
   border-radius: 50%;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox span.customRadio:hover {
   background-color: #5c5a7f;
 }
-
 .app .appWrapper form fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
   background-color: #7b625e;
 }
-
 .app .appWrapper form fieldset .searchLabel {
   display: block;
   width: 100%;
   margin-right: 20px;
   padding-top: 50px;
 }
-
 .app .appWrapper form legend {
   margin: 0px auto 20px;
 }
-
 .app .appWrapper form label {
   margin: 20px 40px 0 0;
   min-width: 90px;
 }
-
 .app .appWrapper form input.search {
   margin: 20px 0;
   min-width: 200px;
@@ -545,7 +513,6 @@ button:focus,
   border: none;
   background-color: #7b625e4a;
 }
-
 .app .appWrapper form button {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -558,7 +525,6 @@ button:focus,
   color: #f0eaea;
   border: none;
 }
-
 .app .appWrapper form button:focus {
   padding: 21px 46px;
   margin: 0 0 34px 2px;
@@ -604,12 +570,11 @@ button:focus,
 }
 
 .forecast {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   padding: 0;
   -webkit-column-gap: 50px;
+     -moz-column-gap: 50px;
           column-gap: 50px;
   row-gap: 78px;
   margin: 0;
@@ -624,7 +589,6 @@ footer {
   font-size: 1.6rem;
   font-family: "Nunito Sans", sans-serif;
 }
-
 footer .flexBox {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -633,12 +597,10 @@ footer .flexBox {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-
 footer .flexBox a {
   margin: 0 20px 0;
   padding: 1px;
 }
-
 footer .flexBox a i {
   margin-left: 20px;
 }
@@ -703,7 +665,6 @@ a.createdAtJuno {
   padding: 100px;
   background-color: #7b625e;
 }
-
 .modal p {
   font-size: 2rem;
 }
@@ -718,6 +679,7 @@ a.createdAtJuno {
   .appWrapper form button {
     right: initial;
   }
+
   .results {
     left: 85%;
     top: 37%;
@@ -726,21 +688,16 @@ a.createdAtJuno {
     font-size: 4rem;
   }
 }
-
-@media (min-width: 1000px) {
-  .app .mobileShow {
-    display: none;
-  }
-}
-
 /* Landscape phone to portrait tablet */
 @media (max-width: 950px) {
   header {
     height: 55vh;
   }
+
   h1 {
     font-size: 8.5rem;
   }
+
   .app {
     padding-bottom: 40px;
   }
@@ -775,45 +732,45 @@ a.createdAtJuno {
     margin: 0px 0 29px;
   }
   .app .appWrapper form.form fieldset.fieldset .smallScreenGrid {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .app .appWrapper form.form fieldset.fieldset .smallScreenGrid label {
     margin: 20px 0;
     line-height: 1.2;
   }
-  .app .appWrapper form.form fieldset.fieldset input[type="search"].search {
+  .app .appWrapper form.form fieldset.fieldset input[type=search].search {
     width: 100%;
   }
   .app .appWrapper form.form button.smallScreenButton {
     -ms-flex-item-align: initial;
-        -ms-grid-row-align: initial;
         align-self: initial;
     position: static;
     width: 100%;
   }
+
   .results {
     position: static;
     left: 75%;
     top: initial;
     bottom: 90%;
   }
+
   .forecast {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
     -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
             column-gap: 40px;
     row-gap: 110px;
     margin: 85px 0 0;
   }
+
   .mobileShow {
     display: block;
   }
+
   footer {
     text-align: center;
     line-height: 2.1;
@@ -828,7 +785,6 @@ a.createdAtJuno {
     display: none;
   }
 }
-
 /* Landscape phones and down */
 @media (max-width: 600px) {
   header {
@@ -837,15 +793,19 @@ a.createdAtJuno {
   header a > .fa-chevron-down {
     display: none;
   }
+
   h1 {
     font-size: 7rem;
   }
+
   h2 {
     font-size: 4.5rem;
   }
+
   .wrapper {
     width: 90%;
   }
+
   .app {
     padding: 40px 0 50px;
   }
@@ -855,16 +815,18 @@ a.createdAtJuno {
   .app .appWrapper form.form fieldset.fieldset {
     width: 100%;
   }
-  .app .appWrapper form.form fieldset.fieldset input[type="search"] {
+  .app .appWrapper form.form fieldset.fieldset input[type=search] {
     width: 100%;
   }
   .app .appWrapper form.form .smallScreenButton {
     margin-bottom: 20px;
   }
+
   .results {
     padding-top: 0;
     position: static;
   }
+
   footer {
     text-align: left;
   }
