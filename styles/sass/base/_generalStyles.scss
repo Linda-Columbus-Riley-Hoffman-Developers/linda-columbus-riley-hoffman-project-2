@@ -70,6 +70,16 @@ button:focus,
     outline: $focusOutline;
 }
 
+input[type="search"]:hover {
+    border: 1.5px dotted black;
+    padding: 18.5px;
+}
+
+.smallScreenButton:hover {
+    border: 2.5px dotted black;
+    padding: 22.5px 47.5px;
+}
+
 .app {
     background-color: $backgroundColor;
     padding: 80px 0 150px;
