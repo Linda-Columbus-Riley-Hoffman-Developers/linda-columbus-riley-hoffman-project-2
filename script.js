@@ -18,6 +18,7 @@ weatherApp.now = document.getElementById(`now`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 weatherApp.resultsChevron = document.querySelector(`a.mobileShow`);
+weatherApp.modal = document.querySelector(`.modal`);
 
 // Function to call the event listener
 weatherApp.startEventListener = () => {
@@ -60,6 +61,22 @@ weatherApp.startEventListener = () => {
     })
 }
 
+// Modal display error handling
+weatherApp.modalErrorHandling = () => {
+    weatherApp.modal.style.display = `block`;
+    weatherApp.modal.innerHTML = `
+        <p>Oops that doesn't look like a city name. Try again!</p>
+        <button class="modalButton">Close</button>
+        `;
+
+    // Close modal window button
+    const modalButton = document.querySelector(`.modalButton`);
+    modalButton.addEventListener(`click`, function (modalEvent) {
+        weatherApp.modal.style.visibility = `hidden`;
+        // window.location.reload();
+    })
+}
+
 // Request information from the API
 weatherApp.getDataOne = (queryOne) => {
     const url = new URL(weatherApp.apiUrl);
@@ -70,22 +87,31 @@ weatherApp.getDataOne = (queryOne) => {
     fetch(url)
         .then((response) => {
             if (response.ok) {
-                console.log(response, 'first .then')
                 return response.json();
             } else {
-                alert(`Oops that doesn't look like a city name. Try again!`);
+                weatherApp.searchInput = ``;
                 weatherApp.userSearch = ``;
-                 // Show chevron if window is small enough
+                // Show chevron if window is small enough
                 if (window.innerWidth <= 950) {
-                weatherApp.resultsChevron.style.display = 'block'
+                    weatherApp.resultsChevron.style.display = 'block'
                 }
+                throw new Error(response.statusText)
             }
         })
         .then((jsonResponse) => {
-            console.log(jsonResponse, 'second .then');
             weatherApp.displayTodaysData(jsonResponse);
         })
+        .catch((error) => {
+            // Modal error display
+            if (error.message === `Not Found`) {
+                weatherApp.modalErrorHandling();
+            }
+        })
 }
+        
+                
+           
+
 
 weatherApp.getDataFive = (queryFive) => {
     const urlFiveDay = new URL(weatherApp.apiUrlFiveDay);
@@ -105,8 +131,9 @@ weatherApp.getDataFive = (queryFive) => {
         })
         .then((jsonResponse) => {
             if (jsonResponse.errorCode) {
-                alert(`Oops that doesn't look like a city name. Try again!`);
-                weatherApp.userSearch = ``;
+                weatherApp.modalErrorHandling();
+                // Show chevron
+                weatherApp.resultsChevron.style.display = 'block'
                 // Show chevron if window is small enough
                 if (window.innerWidth <= 950) {
                     weatherApp.resultsChevron.style.display = 'block'
@@ -128,6 +155,7 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Connecting corresponding weather icon to weather condition
     const weatherIconFunction = (iconID, imgAlt) => {
         if (weatherConditionIcon === iconID) {
+            console.log(iconID)
             weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`
         }
     }
