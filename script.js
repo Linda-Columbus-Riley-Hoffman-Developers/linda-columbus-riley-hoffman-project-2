@@ -14,7 +14,8 @@ weatherApp.resultsDiv = document.querySelector(`.results`);
 weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.searchInput = document.getElementById(`search`);
 weatherApp.fiveDay = document.getElementById(`fiveDay`)
-weatherApp.now = document.getElementById(`now`)
+weatherApp.now = document.getElementById(`now`);
+weatherApp.displayDescription = document.getElementsByClassName(`displayDescription`);
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 weatherApp.resultsChevron = document.querySelector(`a.mobileShow`);
@@ -50,10 +51,8 @@ weatherApp.startEventListener = () => {
         // If they have not selected Five Day Forecast
         } else {
             // Move resultsDiv to display one day
-            weatherApp.resultsDiv.style.left = '85%'
-            weatherApp.resultsDiv.style.top = '30%'
             weatherApp.resultsDiv.style.padding = '75px 0 60px';
-            // Hide Forcast ol
+            // Hide Forecast ol
             weatherApp.forecastOl.style.display = 'none'
             // Pass user query to current day API
             weatherApp.getDataOne(weatherApp.userSearch);
@@ -135,6 +134,7 @@ weatherApp.getDataFive = (queryFive) => {
 
 // Function to display weather data on the page
 weatherApp.displayTodaysData = (todaysDataFromApi) => {
+    console.log(todaysDataFromApi)
     // Targeting the weather condition for icon
     const weatherConditionIcon = todaysDataFromApi.weather[0].icon;
     const weatherIcon = document.createElement(`img`)
@@ -142,12 +142,15 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     // Connecting corresponding weather icon to weather condition
     const weatherIconFunction = (iconID, imgAlt) => {
         if (weatherConditionIcon === iconID) {
-            weatherApp.displayIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`
+            weatherApp.displayIcon.innerHTML = `
+            <p class="displayDescription">${imgAlt}</p>
+            <img src="http://openweathermap.org/img/wn/${iconID}@2x.png" alt="${imgAlt}">`;
         }
     }
     weatherIconFunction(`11d`, `Thunderstorm`);
     weatherIconFunction(`09d`, `Drizzle`);
-    weatherIconFunction(`10d`, `Rain`);
+    weatherIconFunction(`10d`, `Rainy day`);
+    weatherIconFunction(`10n`, `Rainy night`);
     weatherIconFunction(`13d`, `Freezing rain or snow`);
     weatherIconFunction(`50d`, `Daytime fog or haze`);
     weatherIconFunction(`50n`, `Nighttime fog or haze`);
@@ -159,6 +162,7 @@ weatherApp.displayTodaysData = (todaysDataFromApi) => {
     weatherIconFunction(`03n`, `Nighttime scattered showers`);
     weatherIconFunction(`04d`, `Overcast day`);
     weatherIconFunction(`04n`, `Overcast night`)
+
     
     // Function to delay textContent in order to give API time to load img
     setTimeout(function() {

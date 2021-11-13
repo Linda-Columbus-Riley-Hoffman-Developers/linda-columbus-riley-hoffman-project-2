@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather Scout: Your Fast Forecast</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Individual Google Font Links Go Here -->
@@ -20,8 +20,8 @@
 <body>
     <header>
         <a href="#main" class="skip-link">Skip To Content</a>
-        <h1>Weather App</h1>
-        <h2>your weather app</h2>
+        <h1>Weather Scout</h1>
+        <h2>your fast forecast</h2>
         <a href="#main" aria-hidden="true" tabindex="-1"><i class="fas fa-chevron-down"></i></a>
     </header>
     <main id="main">
@@ -34,7 +34,7 @@
             <div class="wrapper flexBox appWrapper">
                 <form action="_blank" class="form">
                     <fieldset class="fieldset">
-                        <legend class="legend">Find out the temperature anywhere in the world!</legend>
+                        <legend class="legend">Find out the weather anywhere in the world!</legend>
                         <div class="flexBox smallScreenGrid">
                             <label for="now" class="radioBox now">
                                 <input type="radio" id="now" name="when" class="radioInput">
@@ -54,7 +54,7 @@
                 </form>
                 <div class="results flexBox" id="results">
                     <a href="#results" class="mobileShow" aria-hidden="true"><i class="fas fa-chevron-down" tabindex="-1"></i></a>
-                    <span class="displayIcon"></span>
+                    <div class="displayIcon"></div>
                     <ol class="forecast"></ol>
                 </div>
             </div>
