@@ -500,15 +500,10 @@ fieldset .flexBox {
 fieldset .flexBox .radioBox {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding: 5px 0 0 47px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 2.2rem;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  padding: 5px 0 0 47px;
   /* On mouse-over, add a grey background color */
 }
 fieldset .flexBox .radioBox .radioBox.now {
@@ -602,9 +597,6 @@ button.smallScreenButton:focus {
 
 .results p:last-child {
   padding-bottom: 25px;
-  position: absolute;
-  left: 50%;
-  margin-left: 40px;
 }
 
 .forecast {
