@@ -825,9 +825,6 @@ a.createdAtJuno {
   header {
     height: 60vh;
   }
-  header a > .fa-chevron-down {
-    display: none;
-  }
 
   h1 {
     font-size: 7rem;
