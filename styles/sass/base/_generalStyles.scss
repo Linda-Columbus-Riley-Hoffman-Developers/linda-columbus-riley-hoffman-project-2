@@ -228,6 +228,9 @@ footer {
     justify-content: space-between;
     font-size: 1.6rem;
     font-family: "Nunito Sans", sans-serif;
+    a:hover {
+        text-decoration: underline;
+    }
     .flexBox {
         align-items: center;
         justify-content: space-between;
