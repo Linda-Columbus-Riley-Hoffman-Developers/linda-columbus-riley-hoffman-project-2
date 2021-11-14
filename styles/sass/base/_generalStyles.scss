@@ -416,7 +416,7 @@ a.createdAtJuno {
     }
 }
 
-/* Landscape phones and down */
+/* Medium phones and down */
 @media (max-width: 675px) {
     header {
         height: 60vh;
@@ -475,5 +475,15 @@ a.createdAtJuno {
         height: 200px;
         padding: 50px;
     }
+}
+
+
+/* Smallest phones */
+@media (max-width: 370px) {
+    
+    h1 {
+            font-size: 5rem !important;
+    } 
+
 }
 

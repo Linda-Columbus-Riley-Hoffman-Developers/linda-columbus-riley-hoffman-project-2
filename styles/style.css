@@ -14,7 +14,7 @@ article, aside, footer, header, nav, section {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: .67em 0;
 }
 
 figcaption, figure, main {
@@ -33,7 +33,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace,monospace;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace, monospace;
+  font-family: monospace,monospace;
   font-size: 1em;
 }
 
@@ -83,11 +83,11 @@ sub, sup {
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
 
 audio, video {
@@ -136,7 +136,7 @@ button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring
 }
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: .35em .75em .625em;
 }
 
 legend {
@@ -206,7 +206,7 @@ template {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: "";
+  content: '';
   clear: both;
   height: 0;
 }
@@ -240,7 +240,7 @@ body {
 }
 
 h1 {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 14rem;
   font-weight: 700;
   color: #2b1a16;
@@ -256,29 +256,42 @@ h2 {
 
 h2,
 button {
-  font-family: "Crimson Text", serif;
+  font-family: 'Crimson Text', serif;
 }
 
 p {
   font-size: 1.6rem;
 }
 
-input::-webkit-input-placeholder {
+h3,
+label,
+input,
+input::-webkit-input-placeholder,
+button,
+legend,
+.skip-link {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-input::-moz-placeholder {
+h3,
+label,
+input,
+input:-ms-input-placeholder,
+button,
+legend,
+.skip-link {
   font-size: 2.8rem;
   text-decoration: none;
 }
 
-input:-ms-input-placeholder {
-  font-size: 2.8rem;
-  text-decoration: none;
-}
-
-input::-ms-input-placeholder {
+h3,
+label,
+input,
+input::-ms-input-placeholder,
+button,
+legend,
+.skip-link {
   font-size: 2.8rem;
   text-decoration: none;
 }
@@ -299,7 +312,7 @@ legend,
 label,
 input,
 .skip-link {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   color: #332c2a;
 }
 
@@ -320,17 +333,21 @@ footer {
   font-size: 1.6rem;
   font-family: "Nunito Sans", sans-serif;
 }
+
 footer p,
 footer i,
 footer a {
   color: #f0eaea;
 }
+
 footer p {
   font-size: 1.6rem;
 }
+
 footer a {
   text-decoration: none;
 }
+
 footer i {
   font-size: 2rem;
 }
@@ -339,6 +356,7 @@ footer i {
   font-size: 2rem;
   color: #f0eaea;
 }
+
 .modal button {
   color: #c4bfbf;
 }
@@ -375,6 +393,7 @@ header {
   text-align: center;
   position: relative;
 }
+
 header i {
   color: #ffecec;
   font-size: 3rem;
@@ -406,6 +425,7 @@ header i {
             transform: translateY(-30px);
   }
 }
+
 header, section, form, footer {
   padding: 20px;
 }
@@ -441,7 +461,7 @@ button:focus,
   outline: 4px solid #f1a87d;
 }
 
-input[type=search]:hover {
+input[type="search"]:hover {
   border: 1.5px dotted black;
   padding: 20.5px;
 }
@@ -456,6 +476,7 @@ input[type=search]:hover {
   padding: 80px 0 150px;
   width: 90%;
 }
+
 .app .appWrapper {
   position: relative;
 }
@@ -472,13 +493,16 @@ form {
           justify-content: space-between;
   padding: 20px 0px 20px 20px;
 }
+
 form legend {
   margin: 0px auto 20px;
 }
+
 form label {
   margin: 20px 40px 0 0;
   min-width: 90px;
 }
+
 form input.search {
   margin: 20px 0;
   min-width: 200px;
@@ -493,10 +517,12 @@ fieldset {
   padding: 10px;
   width: 100%;
 }
+
 fieldset .flexBox {
   margin-bottom: 29px;
   /* When the checkbox is checked, add a blue background */
 }
+
 fieldset .flexBox .radioBox {
   display: block;
   position: relative;
@@ -506,9 +532,11 @@ fieldset .flexBox .radioBox {
   font-size: 2.2rem;
   /* On mouse-over, add a grey background color */
 }
+
 fieldset .flexBox .radioBox .radioBox.now {
   margin-right: 40px;
 }
+
 fieldset .flexBox .radioBox .radioInput {
   position: absolute;
   opacity: 0;
@@ -516,6 +544,7 @@ fieldset .flexBox .radioBox .radioInput {
   height: 0;
   width: 0;
 }
+
 fieldset .flexBox .radioBox .customRadio {
   position: absolute;
   top: 0;
@@ -525,12 +554,15 @@ fieldset .flexBox .radioBox .customRadio {
   background-color: #7b625e4a;
   border-radius: 50%;
 }
+
 fieldset .flexBox .radioBox span.customRadio:hover {
   background-color: #5c5a7f;
 }
+
 fieldset .flexBox .radioBox .radioInput:checked ~ .customRadio {
   background-color: #7b625e;
 }
+
 fieldset .searchLabel {
   display: block;
   width: 100%;
@@ -600,11 +632,12 @@ button.smallScreenButton:focus {
 }
 
 .forecast {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   padding: 0;
   -webkit-column-gap: 50px;
-     -moz-column-gap: 50px;
           column-gap: 50px;
   row-gap: 78px;
   margin: 0;
@@ -617,9 +650,11 @@ footer {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 footer a:hover {
   text-decoration: underline;
 }
+
 footer .flexBox {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -628,10 +663,12 @@ footer .flexBox {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 footer .flexBox a {
   margin: 0 20px 0;
   padding: 1px;
 }
+
 footer .flexBox a i {
   margin-left: 20px;
 }
@@ -675,6 +712,7 @@ a.createdAtJuno {
   background-color: #7b625e;
   border: 3px solid #2b1a16;
 }
+
 .modal .modalButton {
   color: #c8c3c3;
   padding-left: 75px;
@@ -706,29 +744,25 @@ a.createdAtJuno {
     padding: 10px 0 10px 10px;
     width: 100%;
   }
-
   .results .forecastP {
     font-size: 4rem;
   }
-
   .modal .modalButton {
     padding-left: 0;
   }
 }
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 960px) {
   header {
     height: 75vh;
   }
-
   h1 {
     font-size: 8.5rem;
   }
-
   h2 {
     font-size: 3.5rem;
   }
-
   .app {
     padding-bottom: 40px;
   }
@@ -741,7 +775,6 @@ a.createdAtJuno {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-
   form {
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -764,45 +797,45 @@ a.createdAtJuno {
     margin: 0px 0 29px;
   }
   form fieldset:first-child .smallScreenGrid {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
   form fieldset:first-child .smallScreenGrid label {
     margin: 20px 0;
     line-height: 1.2;
   }
-  form fieldset:first-child input[type=search] {
+  form fieldset:first-child input[type="search"] {
     width: 100%;
   }
   form button.smallScreenButton {
     -ms-flex-item-align: initial;
+        -ms-grid-row-align: initial;
         align-self: initial;
     position: static;
     width: 100%;
   }
-
   .results {
     position: static;
     left: 75%;
     top: initial;
     bottom: 90%;
   }
-
   .forecast {
+    display: -ms-grid;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
     -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
             column-gap: 40px;
     row-gap: 110px;
     margin: 85px 0 0;
   }
-
   .mobileShow {
     display: block;
   }
-
   footer {
     text-align: center;
     line-height: 2.1;
@@ -816,44 +849,37 @@ a.createdAtJuno {
   footer .flexBox span:last-child {
     display: none;
   }
-
   .modal {
     left: 10%;
   }
 }
-/* Landscape phones and down */
+
+/* Medium phones and down */
 @media (max-width: 675px) {
   header {
     height: 60vh;
   }
-
   h1 {
     font-size: 7rem;
   }
-
   .wrapper {
     width: 90%;
   }
-
   .app {
     padding: 40px 0 50px;
   }
-
   form,
-fieldset,
-input[type=search] {
+  fieldset,
+  input[type="search"] {
     width: 100%;
   }
-
   .smallScreenButton {
     margin-bottom: 20px;
   }
-
   .results {
     padding-top: 0;
     position: static;
   }
-
   footer {
     text-align: left;
   }
@@ -864,21 +890,27 @@ input[type=search] {
     display: none;
   }
   footer .flexBox a,
-footer .flexBox i {
+  footer .flexBox i {
     display: block;
   }
   footer .flexBox a i,
-footer .flexBox i i {
+  footer .flexBox i i {
     margin-left: 0;
   }
   footer a:last-child {
     -ms-flex-item-align: start;
         align-self: flex-start;
   }
-
   .modal {
     width: 350px;
     height: 200px;
     padding: 50px;
+  }
+}
+
+/* Smallest phones */
+@media (max-width: 370px) {
+  h1 {
+    font-size: 5rem !important;
   }
 }
