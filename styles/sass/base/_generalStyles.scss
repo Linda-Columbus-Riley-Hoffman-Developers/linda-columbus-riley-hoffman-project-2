@@ -70,6 +70,10 @@ button:focus,
     outline: $focusOutline;
 }
 
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
 input[type="search"]:hover {
     border: 1.5px dotted black;
     padding: 20.5px;
