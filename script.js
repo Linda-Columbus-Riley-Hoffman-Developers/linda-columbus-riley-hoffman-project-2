@@ -107,7 +107,7 @@ weatherApp.getDataFive = (queryFive) => {
     urlFiveDay.search = new URLSearchParams({
         locations: `${queryFive}`,
         aggregateHours: 24,
-        forecastDays: 5,
+        forecastDays: 5, /* returns 5-6 days */
         unitGroup: `metric`,
         shortColumnNames: false,
         contentType: `json`,
