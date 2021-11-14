@@ -243,17 +243,16 @@ h1 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 14rem;
   font-weight: 700;
-  font-style: italic;
   color: #2b1a16;
   text-transform: uppercase;
   line-height: 80%;
   text-shadow: 3px 2px 2px #ffecec;
+  font-style: italic;
 }
 
 h2 {
   font-size: 5rem;
   font-weight: 500;
-  font-style: italic;
 }
 
 h2,
