@@ -1,4 +1,5 @@
 @mixin fontStyle ($fontSize, $fontWeight) {
     font-size: $fontSize;
     font-weight: $fontWeight;
+    font-style: italic;
 }
