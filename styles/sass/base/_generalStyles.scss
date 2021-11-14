@@ -70,6 +70,7 @@ button:focus,
     outline: $focusOutline;
 }
 
+// To remove iOS rounded corner auto-styling of input field
 input[type="search"] {
     -webkit-appearance: none;
 }
