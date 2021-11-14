@@ -3,10 +3,10 @@ const weatherApp = {};
 
 // API information
 weatherApp.apiKey = `1903a471aab786101e6bcd6d7b0b6a07`;
-weatherApp.apiKeyFiveDay = `8CQY9SE2V7QTVGV5WP895DAZ5`;
+weatherApp.apiKeyFuture = `8CQY9SE2V7QTVGV5WP895DAZ5`;
 
 weatherApp.apiUrl = `https://api.openweathermap.org/data/2.5/weather`;
-weatherApp.apiUrlFiveDay = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast`;
+weatherApp.apiUrlFuture = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast`;
 
 // Variables to capture page elements
 weatherApp.form = document.querySelector(`form`)
@@ -15,7 +15,7 @@ weatherApp.resultsDiv = document.querySelector(`.results`);
 weatherApp.displayIcon = document.querySelector(`.displayIcon`);
 weatherApp.displayDescription = document.getElementsByClassName(`displayDescription`);
 weatherApp.now = document.getElementById(`now`);
-weatherApp.fiveDay = document.getElementById(`fiveDay`)
+weatherApp.future = document.getElementById(`future`)
 weatherApp.p = document.createElement(`p`);
 weatherApp.forecastOl = document.querySelector(`ol`);
 weatherApp.resultsChevron = document.querySelector(`a.mobileShow`);
@@ -36,8 +36,8 @@ weatherApp.startEventListener = () => {
        
         // Save user's search string in a variable
         weatherApp.userSearch = weatherApp.searchInput.value;
-        // If user has selected Five Day forecast
-        if (weatherApp.fiveDay.checked) {
+        // If user has selected Future forecast
+        if (weatherApp.future.checked) {
             // Move resultsDiv to display forecast
             weatherApp.resultsDiv.style.left = '85%'
             weatherApp.resultsDiv.style.top = '0'
@@ -45,7 +45,7 @@ weatherApp.startEventListener = () => {
             // Show Forecast ol
             weatherApp.forecastOl.style.display = 'grid'
             // Pass user query to forecast API
-            weatherApp.getDataFive(weatherApp.userSearch);
+            weatherApp.getDataFuture(weatherApp.userSearch);
         // If they selected current data
         } else {
             // Move resultsDiv to display one day
@@ -100,20 +100,20 @@ weatherApp.getDataOne = (queryOne) => {
         })
 }
         
-// Function to calling Visual Crossing API for five days of weather data
-weatherApp.getDataFive = (queryFive) => {
-    const urlFiveDay = new URL(weatherApp.apiUrlFiveDay);
+// Function to calling Visual Crossing API for future weather data
+weatherApp.getDataFuture = (queryFuture) => {
+    const urlFuture = new URL(weatherApp.apiUrlFuture);
 
-    urlFiveDay.search = new URLSearchParams({
-        locations: `${queryFive}`,
+    urlFuture.search = new URLSearchParams({
+        locations: `${queryFuture}`,
         aggregateHours: 24,
         forecastDays: 5,
         unitGroup: `metric`,
         shortColumnNames: false,
         contentType: `json`,
-        key: weatherApp.apiKeyFiveDay
+        key: weatherApp.apiKeyFuture
     })
-    fetch(urlFiveDay)
+    fetch(urlFuture)
         .then((response) => {
             return response.json();
         })
